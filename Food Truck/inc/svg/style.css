@@ -1,0 +1,46 @@
+:root {
+/* 	red */
+  --secondary: #ce2626;
+/* 	grey */
+  --tertiary: #85817e; 
+/* 	black */
+	--primary: #000;
+}
+
+.city{
+  fill: var(--tertiary);
+stroke: var(--tertiary);
+stroke-width: 3;
+
+}
+
+.grey-fire{
+    fill: var(--tertiary);
+/* stroke: var(--primary); */
+stroke-width: 3;
+   -webkit-animation: blur-grey 3s infinite;
+}
+.red-fire{
+    fill: var(--secondary);
+/* stroke: var(--primary); */
+stroke-width: 3;
+/*   filter: blur(1px); */
+   -webkit-animation: blur-red 3s infinite;
+}
+.n{
+    fill: var(--primary);
+stroke: var(--primary);
+stroke-width: 3;
+  filter: blur(100px);
+  
+
+}
+@-webkit-keyframes blur-red {
+  0%, 100%  { -webkit-filter: blur(.01em);}
+  50% { -webkit-filter: blur(.05em);}
+}
+
+@-webkit-keyframes blur-grey {
+  0%, 100%  { -webkit-filter: blur(.05em);}
+  50% { -webkit-filter: blur(.01em);}
+}

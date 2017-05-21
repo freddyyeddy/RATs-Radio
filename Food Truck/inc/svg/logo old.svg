@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/css" href="style.css"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+              "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg viewBox="0 0 166 298" preserveAspectRatio="xMidYMid" xmlns="http://www.w3.org/2000/svg" version="1.1">
+
+
+     <style type="text/css" >
+      <![CDATA[
+:root {
+/* 	red */
+  --secondary: #ce2626;
+/* 	grey */
+  --tertiary: #85817e;
+/* 	black */
+	--primary: #000;
+}
+
+.city{
+  fill: var(--tertiary);
+stroke: var(--tertiary);
+stroke-width: 3;
+height:auto;
+}
+
+.grey-fire{
+    fill: var(--tertiary);
+/* stroke: var(--primary); */
+stroke-width: 3;
+height:auto;
+  -webkit-animation: blur-grey 3s infinite;
+
+}
+.red-fire{
+    fill: var(--secondary);
+/* stroke: var(--primary); */
+stroke-width: 3;
+  filter: blur(1px);
+height:auto;
+  -webkit-animation: blur-red 3s infinite
+
+}
+.n{
+    fill: var(--primary);
+stroke: var(--primary);
+stroke-width: 3;
+
+filter: blur(1px);
+
+}
+
+
+@-webkit-keyframes blur-red {
+  0%, 100%  { -webkit-filter: blur(.01em);}
+  50% { -webkit-filter: blur(.05em);}
+}
+
+@-webkit-keyframes blur-grey {
+  0%, 100%  { -webkit-filter: blur(.05em);}
+  50% { -webkit-filter: blur(.01em);}
+}
+
+      ]]>
+    </style>
+
+    <g
+       id="g38"
+       transform="translate(-345.85233,-16)">
+      <svg
+         id="svg14"
+         version="1.1"
+         width="100%"
+         height="100%">
+        <path
+           id="path12"
+           d="M 58.51,186.64
+              C 26.34,141.84 28.70,90.01 58.91,42.19
+                48.71,73.29 59.31,116.76 106.39,166.59
+                101.68,129.13 126.41,143.84 126.01,91.68
+                143.28,120.77 134.65,172.60 117.39,207.38
+                88.74,242.49 76.18,206.37 58.51,186.64 Z"
+           class="grey-fire"/>
+      </svg>
+      <svg
+         id="svg18"
+         version="1.1"
+         width="100%"
+         height="100%">
+        <path
+           id="path16"
+           d="M 54.59,288.30
+              C 163.02,297.96 182.13,236.47 153.63,188.33
+                123.27,147.86 118.17,146.86 115.03,75.63
+                108.35,87.33 83.24,132.14 102.47,173.94
+                75.78,171.94 82.46,141.84 82.84,135.48
+                84.02,101.37 123.67,75.29 80.10,1.72
+                96.58,87.33 78.53,74.29 22.80,171.94
+                -11.33,228.11 3.97,281.28 54.59,288.30 Z"
+           class="red-fire"/>
+      </svg>
+      <svg
+         id="svg22"
+         version="1.1"
+         width="100%"
+         height="100%">
+        <path
+           id="path20"
+           d="M 70.68,275.59
+              C 43.21,257.53 24.76,253.53 42.82,192.67
+                75.00,193.67 131.51,233.46 98.16,273.59
+                168.79,261.21 113.07,231.12 153.48,167.59
+                152.91,167.10 119.73,166.59 121.69,229.11
+                91.48,150.20 15.46,173.09 15.35,174.61
+                -9.37,243.83 35.76,278.60 70.68,275.59 Z
+              M -10.55,246.51"
+           class="n" />
+      </svg>
+    </g>
+</svg>

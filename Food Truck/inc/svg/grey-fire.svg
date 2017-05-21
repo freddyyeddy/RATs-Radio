@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+ <?xml-stylesheet type="text/css" href="style.css"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+              "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 357">
+  <path class="grey-fire" 
+        d="M 463.06,225.64
+           C 477.85,190.67 485.25,138.55 470.45,109.29
+             470.79,161.75 449.60,146.95 453.64,184.62
+             413.29,134.51 404.21,90.80 412.95,59.52
+             387.06,107.61 385.04,159.73 412.61,204.79
+             427.75,224.63 438.51,260.95 463.06,225.64 Z" />
+</svg>
