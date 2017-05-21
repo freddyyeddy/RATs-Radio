@@ -2,4 +2,4 @@ curtime=`date`
 git add .
 git commit -m "Automatic Backup @ $curtime"
 
-git push origin Code-Anywhere
+git push origin master
