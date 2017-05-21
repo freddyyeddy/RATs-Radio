@@ -5,7 +5,7 @@ require_once('inc/TwitterAPIExchange.php');
 // go to http://www.openstreetmap.org/relation/2605259 and find the city you want fint relation id (bottom of info pannel) then put that into the $ctyid variable
 $social = new stdClass;
 // Put Social Media Usernames Here
-$social->facebook = "";
+$social->facebook = "Fire-N-Smoke-112542055994094";
 $social->twitter = "fnstruck";
 $social->instagram = "fnstruck";
 $ctyid = 161838;
