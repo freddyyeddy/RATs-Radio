@@ -70,11 +70,11 @@ if(!empty($tst[0]->geo->coordinates)){
 	if(!empty($tst[0]->geo->full_name)){
 	$citynstate = $tst[0]->geo->full_name;
 	}else{
-	$lat=0;
-		$long=0;
+	$lat=36.1627;
+		$long=-86.7816;
 		}
 }
-
+echo  "latitude is :$lat longditude is $long";
 ?>	
 <html lang="en">
 
@@ -116,68 +116,55 @@ if(!empty($tst[0]->geo->coordinates)){
 
 
 	<script>	
-		function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
-  var R = 6371; // Radius of the earth in km
-  var dLat = deg2rad(lat2-lat1);  // deg2rad below
-  var dLon = deg2rad(lon2-lon1); 
-					var location = location;
-  var a = 
-    Math.sin(dLat/2) * Math.sin(dLat/2) +
-    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
-    Math.sin(dLon/2) * Math.sin(dLon/2)
-    ; 
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-  var d = R * c; // Distance in km
-  return d;
-}
+		var latitude = 0;
+		var longitude = 0;
+		var dist;
 
-function deg2rad(deg) {
-  return deg * (Math.PI/180);
-}
 		
     $(document).on( "mobileinit", function() {
     $.mobile.loader.prototype.options.disabled = true;
 });
 
  function geoFindMe() {
-
-  var output = document.getElementById("map");
-
-  if (!navigator.geolocation){
-//     output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
-    return;
-  }
-
-  function success(position) {
-     location.latitude  = position.coords.latitude;
-     location.longitude = position.coords.longitude;
-		alert(location.latitude);
-		console.log("latitude is " + location.latitude + "and Longitude is " + location.longitude);
-//  if (getDistanceFromLatLonInKm(insert php to echo values,latitude,longitude)<10){
-// //     output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
-
-//     var img = new Image();
-//     img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&size=300x300&sensor=false&markers=<?php echo $lat; ?>,<?php echo $long; ?>&key=AIzaSyAivrvfXCE9N4xms0Z6xGSTjcuZDkcvdOk";
-
-//     output.appendChild(img);
-//   }else{
-// 		var img = new Image();
-// 		img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&size=300x300&sensor=false&markers=<?php echo $lat; ?>,<?php echo $long; ?>&path=color:0xff0000ff|fillcolor:0xFFFF0033|weight:5|enc:{<?php echo $city; ?>}&key=AIzaSyAivrvfXCE9N4xms0Z6xGSTjcuZDkcvdOk";
-// 	 output.appendChild(img);
-// 	}
-// 	}
-
-//   function error() {
-// //     output.innerHTML = "Unable to retrieve your location";
-    
-//   }
-
-// //   output.innerHTML = "<p>Locating…</p>";
-
-  navigator.geolocation.getCurrentPosition(success, error,{maximumAge:60000, timeout:5000, enableHighAccuracy:true});
+	 
+	 if (navigator.geolocation) {
+		 navigator.geolocation.getCurrentPosition(function(position) {
+  // geolocation is available
+		 latitude  = position.coords.latitude;
+     longitude = position.coords.longitude;
+// 		alert(latitude);
+	
+  dist = getDistanceFromLatLonInKm(<?php echo $lat; ?>,<?php echo $long; ?>, latitude, longitude,'M');
+			 	console.log("latitude is " + latitude + "and Longitude is " + longitude + "  Distance between is " + dist);
+})}
+else {
+  // geolocation is not supported
+	    if (error.code == error.PERMISSION_DENIED) {
+        // pop up dialog asking for location
+    }
 }
- }
-	$(document).ready(function(){
+ };
+		
+		
+			function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2, unit) {
+	var radlat1 = Math.PI * lat1/180
+	var radlat2 = Math.PI * lat2/180
+	var theta = lon1-lon2
+	var radtheta = Math.PI * theta/180
+	var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+	dist = Math.acos(dist)
+	dist = dist * 180/Math.PI
+	dist = dist * 60 * 1.1515
+	if (unit=="K") { dist = dist * 1.609344 }
+	if (unit=="N") { dist = dist * 0.8684 }
+		console.log(dist)
+	return dist
+}
+		
+		
+		
+
+// 	$(document).ready(function(){
 geoFindMe();
 		$(":button.navbar-toggle").click(function(){
   var target = $(this).data("target");
@@ -193,7 +180,7 @@ geoFindMe();
 
 // });
 		
-	});
+// 	});
 // 		$(document).on('click','.page-scroll', function() { $('.navbar-toggle').toggle(); }); 
 </script>
 </head>
@@ -292,14 +279,15 @@ geoFindMe();
 										<div id="maplbleg">
 										We Service The Whole of middle Tennessee
 									</div>
-									<div id="maplbles"><a target="_blank" href="http://maps.google.com/?q=<?php echo "$lat, $long";   ?>">
+									<div id="maplbles"><a target="_blank" href="https://www.google.com/maps/dir/Current+Location/<?php echo "$lat, $long";   ?>">
 										We Are right by you click here to get directions</a>
 									</div>
 													<div id='map' class="img-responsive">									
 	</div>
     <script>
   // initialize the map
- if (getDistanceFromLatLonInKm(<?php echo $lat; ?>,<?php echo $long; ?>,location.latitude,location.longitude)<10){
+			$(document).ready(function(){
+ if (dist < 10){
 	 
 var map = L.map('map',{attributionControl: false}).setView([<?php echo $lat; ?>,<?php echo $long; ?>], 13);
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -308,6 +296,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       minZoom: 9
 }).addTo(map);
 $( "#maplbleg" ).toggle(); 
+// 	 alert("Too Close");
 // L.marker([51.5, -0.09]).addTo(map)
 // .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
 // 	.openPopup();
@@ -381,6 +370,7 @@ L.geoJSON(myLines, {
  
  }
 map.removeControl(map.zoomControl);
+			});
   </script>
 
 										
