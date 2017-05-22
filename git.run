@@ -1,6 +1,6 @@
 curtime=`date`
-sudo git add .
-sudo git add -u
-sudo git commit -m "Automatic Backup @ $curtime"
+git add .
+git add -u
+git commit -m "Automatic Backup @ $curtime"
 
-sudo git push origin master
+git push origin master
