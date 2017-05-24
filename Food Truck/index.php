@@ -46,8 +46,9 @@ $footprint = json_decode($json);
 // // 	 }
 // // }
 $tst = json_decode($twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest()); 
-// var_export($tst[0]->geo);
+// var_export($tst);
 $tweet = $tst[0]->text;
+// echo $tweet;
 switch(true){
 		case stripos($tweet,'closed') !== false:
         echo "Closed";
@@ -67,14 +68,46 @@ if(!empty($tst[0]->geo->coordinates)){
 	$lat = $tst[0]->geo->coordinates[0];
 	$long = $tst[0]->geo->coordinates[1];
 }else{
-	if(!empty($tst[0]->geo->full_name)){
-	$citynstate = $tst[0]->geo->full_name;
-	}else{
+// 	if(!empty($tst[0]->place->full_name)){
+// 	$citynstate = $tst[0]->geo->full_name;
+// 	}else{
 	$lat=36.1627;
 		$long=-86.7816;
 		}
+// }
+// echo  "latitude is :$lat longditude is $long";
+function ImportCSV2Array($filename)
+{
+    $row = 0;
+    $col = 0;
+ 
+    $handle = @fopen($filename, "r");
+    if ($handle) 
+    {
+        while (($row = fgetcsv($handle, 4096)) !== false) 
+        {
+            if (empty($fields)) 
+            {
+                $fields = $row;
+                continue;
+            }
+ 
+            foreach ($row as $k=>$value) 
+            {
+                $results[$col][$fields[$k]] = $value;
+            }
+            $col++;
+            unset($row);
+        }
+        if (!feof($handle)) 
+        {
+            echo "Error: unexpected fgets() failn";
+        }
+        fclose($handle);
+    }
+ 
+    return $results;
 }
-echo  "latitude is :$lat longditude is $long";
 ?>	
 <html lang="en">
 
@@ -103,8 +136,7 @@ echo  "latitude is :$lat longditude is $long";
     
 		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">  
 		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">  
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto|Varela+Round" rel="stylesheet">
 
 <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> -->
 
@@ -394,6 +426,43 @@ map.removeControl(map.zoomControl);
                 </div>
             </div>
             <div class="row">
+							<?php
+							$menu = ImportCSV2Array("inc/menu.csv");
+							$items = count($menu);
+							$i = 0;
+							foreach($menu as $arr){
+								$i++;
+echo <<<EOT
+				                <div class="col-sm-4 portfolio-item">
+                   <div class="menuitem">
+  <img src="inc/img/menu/nshckn.jpg" alt="Avatar" class="menuimage">
+  <div class="menutextcont">
+    <div class="menutext">
+			<div class="menuheader">
+				$arr[name]
+			</div>
+			$arr[description]
+			<ul>
+				<li>Sandwich-$$arr[plate]</li>
+				<li>Plate-$arr[plate]</li>
+				<li>Combo-$arr[plate]</li>
+			</ul>
+		
+		
+		
+		
+		</div>
+  </div>
+</div>
+</div>				
+								
+EOT;
+							}
+							
+							
+							
+							
+							?>
                 <div class="col-sm-4 portfolio-item">
                    <div class="menuitem">
   <img src="inc/img/menu/nshckn.jpg" alt="Avatar" class="menuimage">
