@@ -427,11 +427,38 @@ map.removeControl(map.zoomControl);
             </div>
             <div class="row">
 							<?php
+							
 							$menu = ImportCSV2Array("inc/menu.csv");
 							$items = count($menu);
 							$i = 0;
 							foreach($menu as $arr){
 								$i++;
+								if($i === $items){
+									echo <<<EOT
+				                <div class="col-sm-4 portfolio-item">
+                   <div class="menuitem">
+  <img src="inc/img/menu/nshckn.jpg" alt="Avatar" class="menuimage">
+  <div class="menutextcont">
+    <div class="menutext">
+			<div class="menuheader">
+				$arr[name]
+			</div>
+			<ul>
+EOT;
+									unset($arr[name]);
+									foreach(array_filter($arr) as $drnknm => $drink){
+										echo '<li>' . $drnknm . "-$$drink</li>" ;
+									}
+echo <<<EOT
+			</ul>
+		</div>
+  </div>
+</div>
+</div>				
+EOT;
+									
+}else{
+									
 echo <<<EOT
 				                <div class="col-sm-4 portfolio-item">
                    <div class="menuitem">
@@ -443,9 +470,9 @@ echo <<<EOT
 			</div>
 			$arr[description]
 			<ul>
-				<li>Sandwich-$$arr[plate]</li>
+				<li>Sandwich-$$arr[sandwich]</li>
 				<li>Plate-$arr[plate]</li>
-				<li>Combo-$arr[plate]</li>
+				<li>Combo-$arr[combo]</li>
 			</ul>
 		
 		
@@ -457,98 +484,11 @@ echo <<<EOT
 </div>				
 								
 EOT;
+}
 							}
 							
-							
-							
-							
-							?>
-                <div class="col-sm-4 portfolio-item">
-                   <div class="menuitem">
-  <img src="inc/img/menu/nshckn.jpg" alt="Avatar" class="menuimage">
-  <div class="menutextcont">
-    <div class="menutext">
-			<div class="menuheader">
-				Nashville Hot Chicken
-			</div>
-			3 chicken strips and pickle with your choice of heat level
-			<ul>
-				<li>Sandwich-$7</li>
-				<li>Plate-$11</li>
-				<li>Combo-$10</li>
-			</ul>
-		
-		
-		
-		
-		</div>
-  </div>
-</div>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                                      <div class="menuitem">
-  <img src="inc/img/menu/nshckn.jpg" alt="Avatar" class="menuimage">
-  <div class="menutextcont">
-		<div class="menutext">Brisket</br>
-		Sandwich-$8</br>
-		Plate-$12</br>
-		Combo-$11</br>
-    Espresso rub served with pickled onion and roasted red peppers
-    </div>
-</div>
-                </div>
-</div>
-                <div class="col-sm-4 portfolio-item">
-                                    <div class="menuitem">
-  <img src="inc/img/menu/nshckn.jpg" alt="Avatar" class="menuimage">
-  <div class="menutextcont">
-		<div class="menutext">Pulled Pork</br>
-		Sandwich-$6</br>
-		Plate-$10</br>
-		Combo-$9</br>
-    Carolina style served with slaw
-		</div>
-  </div>
-</div>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                                      <div class="menuitem">
-  <img src="inc/img/menu/nshckn.jpg" alt="Avatar" class="menuimage">
-  <div class="menutextcont">
-		<div class="menutext">Smoked Turkey</br>
-		Sandwich-$8</br>
-		Plate-$12</br>
-		Combo-$11</br>
-    Smoked white meat and Alabama White Sauce served with slaw
-	  </div>
-  </div>
-</div>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                                     <div class="menuitem">
-  <img src="inc/img/menu/nshckn.jpg" alt="Avatar" class="menuimage">
-  <div class="menutextcont">
-    <div class="menutext">Nashville Hot Chicken Sandwich-$7</br>
-		Plate-$11</br>
-										 Combo-$10</br>
-									3 chicken strips and pickle with your choice of heat level</div>
-  </div>
-</div>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                                       <div class="menuitem">
-  <img src="inc/img/menu/nshckn.jpg" alt="Avatar" class="menuimage">
-  <div class="menutextcont">
-		<div class="menutext">Burnt Ends</br>
-		Sandwich-$10</br>
-		Plate-$14</br>
-		Combo-$13</br>
-    Kansas City style served with pickled onion and roasted red peppers
-	  </div>
-  </div>
-</div>
-                </div>
-            </div>
+?>
+
         </div>
     </section>
 
