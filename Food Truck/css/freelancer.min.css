@@ -144,7 +144,7 @@
 .menutext{
 	  color: var(--secondary);
 font-family: 'Varela Round', sans-serif;
-  font-size: 1.2em;
+  font-size: 2.2vh;
   padding: 1em 1em;
 	display: inline-block;
 	width: 100%;
@@ -166,7 +166,7 @@ font-family: 'Varela Round', sans-serif;
 }
 
 .menuheader{
-    font-size: 2vh;
+    font-size: 3vh;
     vertical-align: top;
     text-align: left;
 	font-weight: bold;
@@ -649,7 +649,7 @@ section.success {
 
 @media (min-width:767px) {
   #portfolio .portfolio-item {
-    margin: 0 0 30px
+    margin: 5px 0px 20px
   }
 }
 

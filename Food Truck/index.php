@@ -437,24 +437,26 @@ map.removeControl(map.zoomControl);
 									echo <<<EOT
 				                <div class="col-sm-4 portfolio-item">
                    <div class="menuitem">
-  <img src="inc/img/menu/nshckn.jpg" alt="Avatar" class="menuimage">
+  <img src="inc/img/menu/$arr[img].jpg" alt="Menu Picture" class="menuimage">
   <div class="menutextcont">
     <div class="menutext">
 			<div class="menuheader">
 				$arr[name]
 			</div>
-			<ul>
+			<ul>\n
 EOT;
-									unset($arr[name]);
+								unset($arr[name]);
+								unset($arr[img]);
 									foreach(array_filter($arr) as $drnknm => $drink){
-										echo '<li>' . $drnknm . "-$$drink</li>" ;
+										echo '<li>' . $drnknm . "-$$drink</li>\n" ;
 									}
 echo <<<EOT
 			</ul>
 		</div>
   </div>
 </div>
-</div>				
+</div>
+
 EOT;
 									
 }else{
@@ -462,7 +464,7 @@ EOT;
 echo <<<EOT
 				                <div class="col-sm-4 portfolio-item">
                    <div class="menuitem">
-  <img src="inc/img/menu/nshckn.jpg" alt="Avatar" class="menuimage">
+  <img src="inc/img/menu/$arr[img].jpg" alt="Avatar" class="menuimage">
   <div class="menutextcont">
     <div class="menutext">
 			<div class="menuheader">
@@ -488,7 +490,7 @@ EOT;
 							}
 							
 ?>
-
+					</div></div>
         </div>
     </section>
 
