@@ -138,14 +138,14 @@
   -ms-transform: translate(-50%, -50%);
 		width:100%;
 	    height: 100%;
-	text-shadow: 2px 2px 5px var(--primary);
+	text-shadow: 1px 1px 5px #fff;
 	
 }
 .menutext{
-	  color: var(--secondary);
+	  color: #000;
 font-family: 'Varela Round', sans-serif;
   font-size: 2.2vh;
-  padding: 1em 1em;
+  padding: .1em 1em;
 	display: inline-block;
 	width: 100%;
 	height: 100%;
@@ -441,7 +441,7 @@ hr.star-primary:after {
    background-image: url('../inc/img/topbg.jpg');
   background-attachment: fixed; 
 /* 	background-position: calc(50% - 50px) 50%; */
-		background-position: 50%;
+		background-position: 50% 10%;
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -584,7 +584,8 @@ section h2 {
 
 section.success {
   background: var(--secondary);
-  color: var(--tertiary)
+  color: var(--tertiary);
+padding: 4vh 0;
 }
 
 @media (max-width:767px) {

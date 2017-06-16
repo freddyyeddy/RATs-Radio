@@ -16,7 +16,7 @@ $settings = array(
     'oauth_access_token_secret' => "VU7tvSShA2SIAwxI07lIgfTGI7QmAtOxVTcuff3fmweGT",
     'consumer_key' => "MOnNAHfUPO11qUaatAnDJNL3i",
     'consumer_secret' => "TfKx1xyomuaK6BYwosWA8wWHRv1WYIVFq11ZBhlDjK4muoUMzI"
-);	
+);
 
 $url ='https://api.twitter.com/1.1/statuses/user_timeline.json';
 // $getfield = "?username=$social->twitter&count=1";
@@ -196,11 +196,12 @@ else {
 		
 		
 
-// 	$(document).ready(function(){
+$(document).ready(function(){
 geoFindMe();
 		$(":button.navbar-toggle").click(function(){
   var target = $(this).data("target");
   	$(target).toggleClass("in");
+});
 });
 
 // 		$(function(){
@@ -243,7 +244,7 @@ geoFindMe();
                         <a href="#portfolio">Menu</a>
                     </li>
                     <li class="page-scroll">
-                        <a  href="#about">Locations</a>
+                        <a  href="#about">About</a>
                     </li>
                     <li class="page-scroll">
                         <a  href="#contact">Contact</a>
@@ -473,8 +474,8 @@ echo <<<EOT
 			$arr[description]
 			<ul>
 				<li>Sandwich-$$arr[sandwich]</li>
-				<li>Plate-$arr[plate]</li>
-				<li>Combo-$arr[combo]</li>
+				<li>Plate-$$arr[plate]</li>
+				<li>Combo-$$arr[combo]</li>
 			</ul>
 		
 		
@@ -490,8 +491,8 @@ EOT;
 							}
 							
 ?>
-					</div></div>
-        </div>
+					</div>
+			</div>
     </section>
 
     <!-- About Section -->
@@ -541,6 +542,9 @@ Smoke.
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
+									You Can Email us at <a href="mailto:info@firensmoketruck.com?Subject=Catering Quesions" target="_blank">info@firensmoketruck.com</a>
+									or use this form
+									
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
                     <form name="sentMessage" id="contactForm" novalidate>
@@ -595,10 +599,6 @@ Smoke.
                         <p>123 ABC Street
                             <br>Cloud Nine USA</p>
                     </div>
-                    <div class="footer-col col-md-4">
-                        <h3>Other Footer Info</h3>
-                        <p> <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -632,7 +632,7 @@ Smoke.
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
+<!--     <script src="js/jqBootstrapValidation.js"></script> -->
 
     <!-- Theme JavaScript -->
     <script src="js/freelancer.min.js"></script>
