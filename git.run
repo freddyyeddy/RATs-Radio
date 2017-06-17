@@ -1,3 +1,4 @@
+#!/bin/bash
 curtime=`date`
 sudo git add -u
 git commit -m "Automatic Backup @ $curtime" --all
