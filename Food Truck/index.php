@@ -45,7 +45,7 @@ $footprint = json_decode($json);
 // // 		 $city .= "|$cord[0],$cord[1]";
 // // 	 }
 // // }
-$tst = json_decode($twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest()); 
+$tst = json_decode($twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest());
 // var_export($tst);
 $tweet = $tst[0]->text;
 // echo $tweet;
@@ -60,8 +60,8 @@ switch(true){
         echo "Opening Soon";
         break;
 }
-		
-		
+
+
 
 if(!empty($tst[0]->geo->coordinates)){
 // 	print_r($tst[0]->geo->coordinates);
@@ -80,35 +80,35 @@ function ImportCSV2Array($filename)
 {
     $row = 0;
     $col = 0;
- 
+
     $handle = @fopen($filename, "r");
-    if ($handle) 
+    if ($handle)
     {
-        while (($row = fgetcsv($handle, 4096)) !== false) 
+        while (($row = fgetcsv($handle, 4096)) !== false)
         {
-            if (empty($fields)) 
+            if (empty($fields))
             {
                 $fields = $row;
                 continue;
             }
- 
-            foreach ($row as $k=>$value) 
+
+            foreach ($row as $k=>$value)
             {
                 $results[$col][$fields[$k]] = $value;
             }
             $col++;
             unset($row);
         }
-        if (!feof($handle)) 
+        if (!feof($handle))
         {
             echo "Error: unexpected fgets() failn";
         }
         fclose($handle);
     }
- 
+
     return $results;
 }
-?>	
+?>
 <html lang="en">
 
 <head>
@@ -133,39 +133,39 @@ function ImportCSV2Array($filename)
 		<link href='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
  <!-- Custom Fonts -->
-    
-		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">  
-		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">  
+
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto|Varela+Round" rel="stylesheet">
 
 <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> -->
 
-   
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script async src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 	<script async src='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js'></script>
 
 
-	<script>	
+	<script>
 		var latitude = 0;
 		var longitude = 0;
 		var dist;
 
-		
+
     $(document).on( "mobileinit", function() {
     $.mobile.loader.prototype.options.disabled = true;
 });
 
  function geoFindMe() {
-	 
+
 	 if (navigator.geolocation) {
 		 navigator.geolocation.getCurrentPosition(function(position) {
   // geolocation is available
 		 latitude  = position.coords.latitude;
      longitude = position.coords.longitude;
 // 		alert(latitude);
-	
+
   dist = getDistanceFromLatLonInKm(<?php echo $lat; ?>,<?php echo $long; ?>, latitude, longitude,'M');
 			 	console.log("latitude is " + latitude + "and Longitude is " + longitude + "  Distance between is " + dist);
 })}
@@ -176,8 +176,8 @@ else {
     }
 }
  };
-		
-		
+
+
 			function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2, unit) {
 	var radlat1 = Math.PI * lat1/180
 	var radlat2 = Math.PI * lat2/180
@@ -192,9 +192,9 @@ else {
 		console.log(dist)
 	return dist
 }
-		
-		
-		
+
+
+
 
 $(document).ready(function(){
 geoFindMe();
@@ -212,9 +212,9 @@ geoFindMe();
 // $('.menuheader').css('font-size',$boxWith);
 
 // });
-		
+
 // 	});
-// 		$(document).on('click','.page-scroll', function() { $('.navbar-toggle').toggle(); }); 
+// 		$(document).on('click','.page-scroll', function() { $('.navbar-toggle').toggle(); });
 </script>
 </head>
 
@@ -228,7 +228,7 @@ geoFindMe();
 						<span style="display: grid;">
 							           <div class="navbar-header page-scroll" style="float:right; grid-column:1; grid-row:1; margin-bottom: 1.5em;margin-left: 2.6em;">
 <!-- onClick="$(this).toggle();" -->
-													
+
                 <button style="bottom: -1.5em;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarbuttons">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
@@ -251,12 +251,12 @@ geoFindMe();
 <!-- 											;document.getElementsByClassName('.navbar-toggle').toggle() -->
                     </li>
                 </ul>
-            </div>     
+            </div>
 							</span>
 						</span>
             <!-- Brand and toggle get grouped for better mobile display -->
  </span>
-					
+
 
 	  <ul id="social" class="list-inline" style="grid-column: 1; grid-row:1">
 			                      <li class="social-instagram">
@@ -270,7 +270,7 @@ geoFindMe();
                             </li>
                         </ul>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            
+
 	</span>
 	<a style="position:realative; display: block;" href="#page-top" style="grid-column:1;grid-row:1">
 		<span id="skylinecont">
@@ -284,7 +284,7 @@ geoFindMe();
 		--><div class="smoke"style="">smoke</div>
 		</div>
 					</a>
-					
+
 					</span>
             <!-- /.navbar-collapse -->
         </div>
@@ -295,7 +295,7 @@ geoFindMe();
     <!-- Header -->
     <header>
         <div class="container bgimgtop" id="maincontent" tabindex="-1">
-            <div class="row">	
+            <div class="row">
 							<div class="col-lg-13">
 							<div class="intro-text">
 								<div style="margin-bottom: 2em;text-shadow: 0px 0px 5px rgba(0, 0, 0, 1),0px 0px 5px rgba(0, 0, 0, 1),0px 0px 5px rgba(0, 0, 0, 1);">
@@ -315,20 +315,20 @@ geoFindMe();
 									<div id="maplbles"><a target="_blank" href="https://www.google.com/maps/dir/Current+Location/<?php echo "$lat, $long";   ?>">
 										We Are right by you click here to get directions</a>
 									</div>
-													<div id='map' class="img-responsive">									
+													<div id='map' class="img-responsive">
 	</div>
     <script>
   // initialize the map
 			$(document).ready(function(){
  if (dist < 10){
-	 
+
 var map = L.map('map',{attributionControl: false}).setView([<?php echo $lat; ?>,<?php echo $long; ?>], 13);
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 	      attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
 
       minZoom: 9
 }).addTo(map);
-$( "#maplbleg" ).toggle(); 
+$( "#maplbleg" ).toggle();
 // 	 alert("Too Close");
 // L.marker([51.5, -0.09]).addTo(map)
 // .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
@@ -352,7 +352,7 @@ $( "#maplbleg" ).toggle();
 		layer.bindPopup(popupContent);
 	}
 
-			
+
 
 			var myLines = [{
     "type": "Feature",
@@ -394,19 +394,19 @@ L.geoJSON(myLines, {
 	style: myStyle
 }).addTo(map);
 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
  }
 map.removeControl(map.zoomControl);
 			});
   </script>
 
-										
+
 										</span>
 </span>
                 </div>
@@ -414,10 +414,10 @@ map.removeControl(map.zoomControl);
         </div>
     </header>
 
-	
+
 	<!-- Portfolio Grid Section -->
-	
-	
+
+
     <section id="portfolio">
         <div class="container">
             <div class="row">
@@ -428,7 +428,7 @@ map.removeControl(map.zoomControl);
             </div>
             <div class="row">
 							<?php
-							
+
 							$menu = ImportCSV2Array("inc/menu.csv");
 							$items = count($menu);
 							$i = 0;
@@ -459,9 +459,9 @@ echo <<<EOT
 </div>
 
 EOT;
-									
+
 }else{
-									
+
 echo <<<EOT
 				                <div class="col-sm-4 portfolio-item">
                    <div class="menuitem">
@@ -477,19 +477,19 @@ echo <<<EOT
 				<li>Plate-$$arr[plate]</li>
 				<li>Combo-$$arr[combo]</li>
 			</ul>
-		
-		
-		
-		
+
+
+
+
 		</div>
   </div>
 </div>
-</div>				
-								
+</div>
+
 EOT;
 }
 							}
-							
+
 ?>
 					</div>
 			</div>
@@ -544,7 +544,7 @@ Smoke.
                 <div class="col-lg-8 col-lg-offset-2">
 									You Can Email us at <a href="mailto:info@firensmoketruck.com?Subject=Catering Quesions" target="_blank">info@firensmoketruck.com</a>
 									or use this form
-									
+
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
                     <form name="sentMessage" id="contactForm" novalidate>
