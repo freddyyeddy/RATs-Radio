@@ -536,7 +536,7 @@ Smoke.
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Contact Me</h2>
+                    <h2>Contact Us</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -545,9 +545,9 @@ Smoke.
                 <div class="col-lg-8 col-lg-offset-2">
 
 
-							<div>
-									You Can Email us at <a href="mailto:fns@firensmoketruck.com?Subject=Catering Quesions" target="_blank">fns@firensmoketruck.com</a>
-									or use this form
+							<div style="text-align:center;">
+									You can contact us at <a href="mailto:fns@firensmoketruck.com?Subject=Catering Quesions" target="_blank">fns@firensmoketruck.com</a>
+									or use the form
 							</div>
              	<script>
 		function captchaSubmit(data) {
@@ -586,15 +586,16 @@ return false;
 <div id="contact-form" class="overlay">
 	<div class="popup">
 		<h2 >Contact Us</h2>
+		<hr class="star-light">
 		<a class="close" href="#">&times;</a>
 		<div class="content">
 			 <form id='form' action="" method="POST">
-	        <div style="display: grid;">
+	        <div style="display: grid; grid-column-gap: 1em;">
 							 <a class="close" href="#">&times;</a>
 	<label style="  grid-column: 1; grid-row: 1;"><input placeholder="Name" id="name" type="text" name="name" class="contact"></label><br>
 	<label  style="  grid-column: 2; grid-row: 1;" ><input placeholder="Email" class="contact" id="email" type="email" name="last"></label><br>
-	<label  style="  grid-column: 1 / span 2; grid-row: 2;" ><textarea placeholder="Tell us about your event,  the location, date, and approximately how may guests we will be serving." class="contact" id="data" type="text" name="data" style="height: 30vh; width: 100%; resize: none"> </textarea></label><br>
-	<button  style="grid-column: 1 / span 2; grid-row: 3;" id="submit" class="g-recaptcha contact" data-sitekey="6Le5xyUUAAAAAFdnBS-1QU1tEHO5jrsvsLHAVTmu" data-callback="captchaSubmit">Submit</button>
+	<label  style="  grid-column: 1 / span 2; grid-row: 2;" ><textarea placeholder="Tell us about your event,  the location, date, and approximately how may guests we will be serving." class="contact" id="data" type="text" name="data" style="height: 30vh; width: 100%; resize: none"></textarea></label><br>
+	<button  style="grid-column: 1 / span 2; grid-row: 3;" id="submit" class="g-recaptcha submitbtn" data-sitekey="6Le5xyUUAAAAAFdnBS-1QU1tEHO5jrsvsLHAVTmu" data-callback="captchaSubmit">Submit</button>
 						 
 	</div>
 </form>
@@ -611,22 +612,11 @@ return false;
 
     <!-- Footer -->
     <footer class="text-center">
-        <div class="footer-above">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col col-md-4">
-                        <h3>Where We Are Now</h3>
-                        <p>123 ABC Street
-                            <br>Cloud Nine USA</p>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="footer-below">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Freddyyeddy <script>document.write(new Date().getFullYear())</script>
+                        Copyright &copy; FireNSMoke <script>document.write(new Date().getFullYear())</script>
                     </div>
                 </div>
             </div>
