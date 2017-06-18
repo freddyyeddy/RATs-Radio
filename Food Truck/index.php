@@ -542,7 +542,7 @@ Smoke.
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-									You Can Email us at <a href="mailto:info@firensmoketruck.com?Subject=Catering Quesions" target="_blank">info@firensmoketruck.com</a>
+									You Can Email us at <a href="mailto:fns@firensmoketruck.com?Subject=Catering Quesions" target="_blank">fns@firensmoketruck.com</a>
 									or use this form
 
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
@@ -625,7 +625,9 @@ Smoke.
 <!--   <script src="vendor/jquery/jquery.min.js"></script> -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <script async src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
+<!--   Capcha for form intagration -->
+	<script async src='https://www.google.com/recaptcha/api.js'></script>
+	<!-- Bootstrap Core JavaScript -->
 <!--     <script src="vendor/bootstrap/js/bootstrap.min.js"></script> -->
 
     <!-- Plugin JavaScript -->

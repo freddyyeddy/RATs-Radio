@@ -1,123 +1,42 @@
-<!DOCTYPE HTML>
-<html>
-
-<head>
-<meta charset="UTF-8">
-<title>Canvas Realistic Smoke Effect</title>
-<style type="text/css">
-body {
-  background: #000;
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script src="js/contact.js"></script> -->
+	<script>
+		function captchaSubmit(data) {
+			var name = $("#name").val();
+var email = $("#email").val();
+			var data = $("#data").val();
+var response = grecaptcha.getResponse();
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = 'name='+ name + '&email='+ email + '&response='+ response;
+if(name==''||email==''||data=='')
+{
+alert("Please Fill All Fields");
 }
-
-canvas {
-  height: 1000px;
-  width: 1000px;
+else
+{
+// AJAX Code To Submit Form.
+$.ajax({
+type: "POST",
+url: "contact.php",
+data: dataString,
+cache: false,
+success: function(result){
+alert(result);
 }
-
-</style>
-
-<body>
-	
-<canvas width="100px" height="100px"></canvas>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	
-  <script type="text/javascript">
-    
-var smoke = new Image();
-smoke.src = 'http://s4.postimg.org/atxdou6u1/smoke.png';
-
-$.fn.emitter = function(opts){
-  var particles = [];
-  var canvases = [];
-
-  var particle = function(canvas){
-    var x, y, size, speedX, speedY, opacity;
-    reset();
-    
-    this.update = function(){
-      if(opacity > 0){
-        opacity -= (Math.random() / opts.speed.fade);
-      
-			}
-
-      if(opacity <= 0){
-        reset();
-      }
-      
-      speedX -= Math.random() / opts.speed.acceleration;
-      speedY -= Math.random() / opts.speed.acceleration;
-      x += speedX;
-      y += speedY;
-      size += Math.random();
-      drawParticle(x, y, size, opacity);
-    };
-
-    function drawParticle(x, y, size, opacity){
-      canvas.globalAlpha = opacity;
-      canvas.drawImage(smoke, 0, 0, opts.size, opts.size, x, y, size, size);
-    }
-
-    function reset(){
-      x = opts.x;
-      y = opts.y;
-      size = opts.size;
-      speedX = Math.random() * opts.speed.x;
-      speedY = Math.random() * opts.speed.y;
-      opacity = Math.random();
-    }
-  };
-
-  var canvas = function(el){
-    var canvas = el[0].getContext('2d');
-
-    canvas.width = el.width();
-    canvas.height = el.height();
-
-    for(var c = 0; c < opts.particles; c++){
-      particles.push(new particle(canvas));
-    }
-
-    this.clear = function(){
-      canvas.clearRect(0, 0, canvas.width, canvas.height);
-    };
-  };
-
-  $(this).each(function(){
-    canvases.push(new canvas($(this)));
-  });
-
-  function render(){
-    canvases.forEach(function(canvas){
-      canvas.clear();
-    });
-
-    particles.forEach(function(particle){
-      particle.update();
-    });
-    
-    window.requestAnimationFrame(render);
-  }
-
-  return {
-    render: render
-  }
-};
-
-$('canvas').emitter({
-  x: 20,
-  y: 100,
-  size: 200,
-  particles: 200,
-  speed: {
-    x: 2,
-    y: -2.5,
-    fade: 150,
-    acceleration: 200
-  }
-}).render();
-
-
-  </script>
-	
-</body>      
+});
+}
+return false;
+		}
+	</script>
+<form id='demo-form' action="" method="POST">
+	<label>Name<input id="name" type="text" name="name"></label><br>
+	<label>email<input id="email" type="email" name="last"></label><br>
+	<label>message<input id="data" type="text" name="data"></label><br>
+	<button id="submit" class="g-recaptcha" data-sitekey="6Le5xyUUAAAAAFdnBS-1QU1tEHO5jrsvsLHAVTmu" data-callback="captchaSubmit" data-badge="inline">Submit</button>
+	<p>Please note this form is protected by reCaptcha.</p>
+	<!-- 		<style>
+		.g-recaptcha {display: none;}
+	</style> -->
+	<br/>
+</form>
