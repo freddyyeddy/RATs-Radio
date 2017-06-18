@@ -982,20 +982,24 @@ div#maincontent {
   font-size: 1em;
   padding: 10px;
   color: #fff;
-  border: 2px solid #06D85F;
+	background-color: var(--secondary);
+  border: 2px solid var(--secondaryrgba);
   border-radius: 20px/50px;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease-out;
+	box-shadow: 3px 3px 20px 3px #888888;
 }
 .button:hover {
-  background: #06D85F;
+  filter: brightness(85%);
+	color: #fff;
+	text-decoration: none;
 }
 
 .overlay {
   position: fixed;
 	    z-index: 9999999;
-  top: 0;
+  top: -37px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -1014,13 +1018,14 @@ div#maincontent {
   padding: 20px;
   background: #fff;
   border-radius: 5px;
-  width: 60vw;
+  width: 80vw;
   position: relative;
   transition: all 5s ease-in-out;
 }
 
 .popup h2 {
   margin-top: 0;
+	text-align:center;
   color: #333;
   font-family: Tahoma, Arial, sans-serif;
 }
@@ -1038,7 +1043,40 @@ div#maincontent {
   color: #06D85F;
 }
 .popup .content {
-  max-height: 30%;
-  overflow: auto;
+      max-height: 70vh;
+    align-content: center;
+    overflow: auto;
+    padding: 0 1em 0 1em;
 }
-
+.contact:focus{
+	
+		-webkit-box-shadow: 0 0 12px 	#3388cc /*{a-active-background-color}*/;
+	-moz-box-shadow: 0 0 12px 		#3388cc /*{a-active-background-color}*/;
+	box-shadow: 0 0 12px 			#3388cc /*{a-active-background-color}*/;
+	
+}
+.contact{
+	
+		margin: .5em 0;
+	border-width: 1px;
+	border-style: solid;
+		padding: .4em;
+	line-height: 1.4em;
+	display: block;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	outline: 0;
+		-webkit-border-radius: 				.3125em /*{global-radii-blocks}*/;
+	border-radius: 						.3125em /*{global-radii-blocks}*/;
+		-webkit-box-shadow: inset 0 1px 3px /*{global-box-shadow-size}*/ 	rgba(0,0,0,.2) /*{global-box-shadow-color}*/;
+	-moz-box-shadow: inset 0 1px 3px /*{global-box-shadow-size}*/ 		rgba(0,0,0,.2) /*{global-box-shadow-color}*/;
+	box-shadow: inset 0 1px 3px /*{global-box-shadow-size}*/ 	rgba(0,0,0,.2) /*{global-box-shadow-color}*/;
+	background-color: 			#fff /*{a-bar-background-color}*/;
+	border-color:	 		#ddd /*{a-bar-border}*/;
+	color: 					#333 /*{a-bar-color}*/;
+	text-shadow: 0 /*{a-bar-shadow-x}*/ 1px /*{a-bar-shadow-y}*/ 0 /*{a-bar-shadow-radius}*/ 	#eee /*{a-bar-shadow-color}*/;
+	font-weight: bold;
+	
+}

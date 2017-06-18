@@ -585,16 +585,16 @@ return false;
 
 <div id="contact-form" class="overlay">
 	<div class="popup">
-		<h2>Contact Us</h2>
+		<h2 >Contact Us</h2>
 		<a class="close" href="#">&times;</a>
 		<div class="content">
 			 <form id='form' action="" method="POST">
-	        <div>
+	        <div style="display: grid;">
 							 <a class="close" href="#">&times;</a>
-	<label>Name<input id="name" type="text" name="name"></label><br>
-	<label>email<input id="email" type="email" name="last"></label><br>
-	<label>message<input id="data" type="text" name="data"></label><br>
-	<button id="submit" class="g-recaptcha" data-sitekey="6Le5xyUUAAAAAFdnBS-1QU1tEHO5jrsvsLHAVTmu" data-callback="captchaSubmit" data-badge="inline">Submit</button>
+	<label style="  grid-column: 1; grid-row: 1;"><input placeholder="Name" id="name" type="text" name="name" class="contact"></label><br>
+	<label  style="  grid-column: 2; grid-row: 1;" ><input placeholder="Email" class="contact" id="email" type="email" name="last"></label><br>
+	<label  style="  grid-column: 1 / span 2; grid-row: 2;" ><textarea placeholder="Tell us about your event,  the location, date, and approximately how may guests we will be serving." class="contact" id="data" type="text" name="data" style="height: 30vh; width: 100%; resize: none"> </textarea></label><br>
+	<button  style="grid-column: 1 / span 2; grid-row: 3;" id="submit" class="g-recaptcha contact" data-sitekey="6Le5xyUUAAAAAFdnBS-1QU1tEHO5jrsvsLHAVTmu" data-callback="captchaSubmit">Submit</button>
 						 
 	</div>
 </form>
