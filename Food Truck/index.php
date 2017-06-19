@@ -549,7 +549,7 @@ EOT;
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2" style="-webkit-text-stroke: 1px rgba(115, 115, 115, 0.2);">
+                <div class="col-lg-4 col-lg-offset-2" style="    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);">
                     <p>Fire n Smoke is a traditional BBQ and Nashville Hot Chicken
 
 food truck with an infusion of contemporary flavors. We strive
