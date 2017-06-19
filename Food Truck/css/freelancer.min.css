@@ -147,7 +147,7 @@
 .menutext{
 	  color: #000;
 font-family: 'Varela Round', sans-serif;
-  font-size: 2.2vh;
+  font-size: 190%;
   padding: .1em 1em;
 	display: inline-block;
 	width: 100%;
@@ -169,7 +169,7 @@ font-family: 'Varela Round', sans-serif;
 }
 
 .menuheader{
-    font-size: 3vh;
+    font-size: 1.3em;
     vertical-align: top;
     text-align: left;
 	font-weight: bold;
@@ -454,6 +454,11 @@ hr.star-primary:after {
    background-image: url('../inc/img/bottombg.jpg');
   background-attachment: fixed; 
 	min-height: 70vh;
+	  background-attachment: fixed; 
+/* 	background-position: calc(50% - 50px) 50%; */
+		background-position: 50% 10%;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 .bgimgbottom:before {
   position: absolute;
@@ -982,7 +987,7 @@ div#maincontent {
 }
 
 .box {
-  width: 40%;
+  width: 100%;
   margin: 0 auto;
   background: rgba(255,255,255,0.2);
   padding: 35px;
@@ -1034,7 +1039,7 @@ div#maincontent {
   border-radius: 5px;
   width: 80vw;
   position: relative;
-  transition: all 5s ease-in-out;
+/*   transition: all 5s ease-in-out; */
 }
 
 .popup h2 {
@@ -1045,8 +1050,8 @@ div#maincontent {
 }
 .popup .close {
   position: absolute;
-  top: 20px;
-  right: 30px;
+  top: 1vh;
+  right: 1vh;
   transition: all 200ms;
   font-size: 30px;
   font-weight: bold;

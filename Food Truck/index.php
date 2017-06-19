@@ -197,13 +197,38 @@ else {
 		
 
 $(document).ready(function(){
+		var div = $("#maincontent").height();
+var win = $(window).height();
+
+if (div < win ) {
+//     $("div").addClass('red');
+	$("#abtf").css("height","100vh");
+}
 geoFindMe();
 		$(":button.navbar-toggle").click(function(){
   var target = $(this).data("target");
   	$(target).toggleClass("in");
 });
-});
+	
 
+	
+});
+		$(window).resize(function() {
+	var div = $("#maincontent").height();
+var win = $(window).height();
+
+if (div < win ) {
+//     $("div").addClass('red');
+	$("#abtf").css("height","100vh")
+}
+		}).resize();
+		
+fontsize = function () {
+    var fontSize = $(".menutextcont").height() * 0.075; // 10% of container width
+    $(".menutext").css('font-size', fontSize);
+};
+$(window).resize(fontsize);
+$(document).ready(fontsize);
 // 		$(function(){
 
 // $box = $('.menuitem');
@@ -215,6 +240,23 @@ geoFindMe();
 		
 // 	});
 // 		$(document).on('click','.page-scroll', function() { $('.navbar-toggle').toggle(); }); 
+		
+		function scrollToTop(scrollDuration) {
+const   scrollHeight = window.scrollY,
+        scrollStep = Math.PI / ( scrollDuration / 15 ),
+        cosParameter = scrollHeight / 2;
+var     scrollCount = 0,
+        scrollMargin,
+        scrollInterval = setInterval( function() {
+            if ( window.scrollY != 0 ) {
+                scrollCount = scrollCount + 1;  
+                scrollMargin = cosParameter - cosParameter * Math.cos( scrollCount * scrollStep );
+                window.scrollTo( 0, ( scrollHeight - scrollMargin ) );
+            } 
+            else clearInterval(scrollInterval); 
+        }, 15 );
+}
+		
 </script>
 </head>
 
@@ -272,7 +314,7 @@ geoFindMe();
             <!-- Collect the nav links, forms, and other content for toggling -->
             
 	</span>
-	<a style="position:realative; display: block;" href="#page-top" style="grid-column:1;grid-row:1">
+	<a style="position:realative; display: block;" onclick="scrollToTop(1000);" style="grid-column:1;grid-row:1">
 		<span id="skylinecont">
 			<object id="skyline" type="image/svg+xml" data="inc/svg/Nashville Skyline.svg"></object>
 		</span>
@@ -293,8 +335,8 @@ geoFindMe();
     </nav>
 
     <!-- Header -->
-    <header>
-        <div class="container bgimgtop" id="maincontent" tabindex="-1">
+    <header id="abtf" class="bgimgtop">
+        <div class="container" id="maincontent" tabindex="-1">
             <div class="row">	
 							<div class="col-lg-13">
 							<div class="intro-text">
@@ -408,6 +450,7 @@ map.removeControl(map.zoomControl);
 
 										
 										</span>
+	
 </span>
                 </div>
             </div>
@@ -498,7 +541,7 @@ EOT;
     <!-- About Section -->
     <section class="success" id="about">
 <!-- 			<div class="container bgimgtop" id="maincontent" tabindex="-1"> -->
-        <div  class="container bgimgbottom" id="maincontent">
+        <div  class="container bgimgbottom">
             <div class="row">
                 <div class="col-lg-12 text-center" style=" padding-top: 3vh;">
                     <h2>About Us</h2>
@@ -506,7 +549,7 @@ EOT;
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2" style="text-shadow: 0px 0px 1px #000000;">
+                <div class="col-lg-4 col-lg-offset-2" style="-webkit-text-stroke: 1px rgba(115, 115, 115, 0.2);">
                     <p>Fire n Smoke is a traditional BBQ and Nashville Hot Chicken
 
 food truck with an infusion of contemporary flavors. We strive
