@@ -8,12 +8,15 @@
 :root {
 /* 	red */
   --secondary: #ce2626;
+/* 	transparent */
 	--secondaryrgba: rgba(206, 38, 38, .25);
 /* 	grey */
   --tertiary: #85817e; 
+/* 	transparent */
+	--tertiarygrba: #85817e;
 /* 	black */
 	--primary: #000;
-	
+/* 	font for the logos */
 	--logofont: 'Raleway';
 }
 
@@ -235,6 +238,7 @@ z-index: -1;
 		font-family: var(--logofont), sans-serif;
 	text-shadow: 0px 0px 5px rgba(0, 0, 0, 1),0px 0px 5px rgba(0, 0, 0, 1),0px 0px 5px rgba(0, 0, 0, 1);
 	font-weight: lighter;
+	    margin-top: 0vh;
 }
 #biglogo{
     width: 1.2em;
@@ -444,10 +448,18 @@ hr.star-primary:after {
 		background-position: 50% 10%;
   background-repeat: no-repeat;
   background-size: 100%;
+	
 }
 .bgimgbottom {
    background-image: url('../inc/img/bottombg.jpg');
   background-attachment: fixed; 
+	min-height: 70vh;
+}
+.bgimgbottom:before {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-color: inherit;
+  content: ' ';
 }
 header {
   text-align: center;
@@ -583,17 +595,18 @@ section h2 {
 }
 
 section.success {
-  background: var(--secondary);
+/*   background: var(--secondary); */
   color: var(--tertiary);
 padding: 4vh 0;
 }
 
 @media (max-width:767px) {
   section {
-    padding: 75px 0
+    padding: 75px 0;
+			margin-top: -10vh
   }
   section.first {
-    padding-top: 75px
+    padding-top: 80px;
   }
 }
 
@@ -965,6 +978,7 @@ fieldset[disabled] .btn-success:hover {
 
 div#maincontent {
   outline: 0
+		    box-shadow: 0px 1px 20px 6px grey;
 }
 
 .box {

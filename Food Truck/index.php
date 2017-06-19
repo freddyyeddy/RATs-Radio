@@ -301,7 +301,7 @@ geoFindMe();
 								<div style="margin-bottom: 2em;text-shadow: 0px 0px 5px rgba(0, 0, 0, 1),0px 0px 5px rgba(0, 0, 0, 1),0px 0px 5px rgba(0, 0, 0, 1);">
                         <h1 class="maintitle">Fire<object id="biglogo" type="image/svg+xml" data="inc/svg/logo.svg"></object>Smoke</h1>
                         <hr class="star-light nologo">
-                        <span class="skills">Eat From Our Box.... Van</span>
+                        <span class="skills">Only The Best Foods Are Forged From Fire and Smoke</span>
                     </div>
 								</div>
 					</div>
@@ -497,15 +497,16 @@ EOT;
 
     <!-- About Section -->
     <section class="success" id="about">
-        <div class="container bgimgbottom">
+<!-- 			<div class="container bgimgtop" id="maincontent" tabindex="-1"> -->
+        <div  class="container bgimgbottom" id="maincontent">
             <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-center" style=" padding-top: 3vh;">
                     <h2>About Us</h2>
                     <hr class="star-light">
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
+                <div class="col-lg-4 col-lg-offset-2" style="text-shadow: 0px 0px 1px #000000;">
                     <p>Fire n Smoke is a traditional BBQ and Nashville Hot Chicken
 
 food truck with an infusion of contemporary flavors. We strive
