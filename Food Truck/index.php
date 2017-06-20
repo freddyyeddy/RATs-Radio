@@ -126,19 +126,10 @@ function ImportCSV2Array($filename)
 
     <title>Fire-N-Smoke</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Theme CSS -->
-		<link href="css/freelancer.min.css" rel="stylesheet">
-		<link href='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css' rel='stylesheet' />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
- <!-- Custom Fonts -->
-    
-		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">  
-		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">  
-<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto|Varela+Round" rel="stylesheet">
 
-<!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> -->
+		<link href="inc/css/min.css" rel="stylesheet">  
+
+<!-- 	<link href="css/freelancer.min.css" rel="stylesheet">  -->
 
    
 
@@ -229,17 +220,9 @@ fontsize = function () {
 };
 $(window).resize(fontsize);
 $(document).ready(fontsize);
-// 		$(function(){
-
-// $box = $('.menuitem');
-// $boxWith = $box.width();
-
-// $('.menuheader').css('font-size',$boxWith);
-
-// });
 		
-// 	});
-// 		$(document).on('click','.page-scroll', function() { $('.navbar-toggle').toggle(); }); 
+		
+
 		
 		function scrollToTop(scrollDuration) {
 const   scrollHeight = window.scrollY,
@@ -257,11 +240,27 @@ var     scrollCount = 0,
         }, 15 );
 }
 		
-</script>
+
+var headerHeight = $("header").height();
+
+$(document).ready(function(){
+	$('a[href^="#"]').on('click',function (e) {
+	    e.preventDefault();
+
+	    var target = this.hash;
+	    var $target = $(target);
+
+	    $('html, body').stop().animate({
+	        'scrollTop': $target.offset().top
+	    }, 900, 'swing', function () {
+	        window.location.hash = target;
+	    });
+	});
+});
+	</script>
 </head>
 
 <body id="page-top" class="index">
-<!-- <div id="skipnav"><a href="#maincontent">Skip to main content</a></div> -->
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -269,7 +268,7 @@ var     scrollCount = 0,
 					<span class="menu-grid" style="z-index:100;"> <span style="grid-column: 2; grid-row:1;">
 						<span style="display: grid;">
 							           <div class="navbar-header page-scroll" style="float:right; grid-column:1; grid-row:1; margin-bottom: 1.5em;margin-left: 2.6em;">
-<!-- onClick="$(this).toggle();" -->
+
 													
                 <button style="bottom: -1.5em;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarbuttons">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
@@ -280,17 +279,17 @@ var     scrollCount = 0,
 													               <div class="collapse navbar-collapse" id="navbarbuttons" >
                 <ul class="nav navbar-nav navbar-right" >
                     <li class="hidden">
-                        <a href="#page-top"></a>
+                        <a href="#page-top" ></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio">Menu</a>
+                        <a href="#portfolio" onclick="$(this).parents('div').toggleClass('in');">Menu</a>
                     </li>
                     <li class="page-scroll">
-                        <a  href="#about">About</a>
+                        <a  href="#about" onclick="$(this).parents('div').toggleClass('in');">About</a>
                     </li>
                     <li class="page-scroll">
-                        <a  href="#contact">Contact</a>
-<!-- 											;document.getElementsByClassName('.navbar-toggle').toggle() -->
+                        <a  href="#contact" onclick="$(this).parents('div').toggleClass('in');">Contact</a>
+
                     </li>
                 </ul>
             </div>     
@@ -349,7 +348,6 @@ var     scrollCount = 0,
 					</div>
                 <div class="col-lg-14">
 <span style="position:realative;">
-<!--                     <img class="img-responsive" src="img/profile.png" alt=""> -->
 									<span id="mapcont"style="position:realative;">
 										<div id="maplbleg">
 										We Service The Whole of middle Tennessee
@@ -543,7 +541,7 @@ EOT;
 <!-- 			<div class="container bgimgtop" id="maincontent" tabindex="-1"> -->
         <div  class="container bgimgbottom">
             <div class="row">
-                <div class="col-lg-12 text-center" style=" padding-top: 3vh;">
+                <div class="col-lg-12 text-center" style=" padding-top: 9vh;">
                     <h2>About Us</h2>
                     <hr class="star-light">
                 </div>
@@ -685,13 +683,13 @@ return false;
 <!--     <script src="vendor/bootstrap/js/bootstrap.min.js"></script> -->
 
     <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> -->
 
     <!-- Contact Form JavaScript -->
 <!--     <script src="js/jqBootstrapValidation.js"></script> -->
 
     <!-- Theme JavaScript -->
-    <script src="js/freelancer.min.js"></script>
+<!--     <script src="js/freelancer.js"></script> -->
 
 </body>
 
