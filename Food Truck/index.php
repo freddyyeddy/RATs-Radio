@@ -244,7 +244,7 @@ var     scrollCount = 0,
 var headerHeight = $("header").height();
 
 $(document).ready(function(){
-	$('a[href^="#"]').on('click',function (e) {
+	$('.page-scroll').children().on('click',function (e) {
 	    e.preventDefault();
 
 	    var target = this.hash;
