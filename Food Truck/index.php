@@ -127,13 +127,13 @@ function ImportCSV2Array($filename)
     <title>Fire-N-Smoke</title>
 
 
-		<link href="inc/css/min.css" rel="stylesheet">  
+		<link href="inc/css/main.css?ts=<?=time()?>&quot; />" rel="stylesheet">  
 
 <!-- 	<link href="css/freelancer.min.css" rel="stylesheet">  -->
 
    
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script async src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 	<script async src='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js'></script>
 
@@ -257,6 +257,7 @@ $(document).ready(function(){
 	    });
 	});
 });
+
 	</script>
 </head>
 
@@ -349,13 +350,13 @@ $(document).ready(function(){
                 <div class="col-lg-14">
 <span style="position:realative;">
 									<span id="mapcont"style="position:realative;">
-										<div id="maplbleg">
+										<div id="maplbleg" class="maplblei">
 										We Service The Whole of middle Tennessee
 									</div>
-									<div id="maplbles"><a target="_blank" href="https://www.google.com/maps/dir/Current+Location/<?php echo "$lat, $long";   ?>">
+									<div id="maplbles" class="maplblei" ><a target="_blank" href="https://www.google.com/maps/dir/Current+Location/<?php echo "$lat, $long";   ?>">
 										We Are right by you click here to get directions</a>
-									</div>
-													<div id='map' class="img-responsive">									
+									</div><span>
+													<div id='map' class="img-responsive">		</span>							
 	</div>
     <script>
   // initialize the map
@@ -368,36 +369,26 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
       minZoom: 9
 }).addTo(map);
-$( "#maplbleg" ).toggle(); 
+$( "#maplbles" ).toggleClass('maplblei maplblev'); 
 // 	 alert("Too Close");
 // L.marker([51.5, -0.09]).addTo(map)
 // .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
 // 	.openPopup();
  }else{
-	 $( "#maplbles" ).toggle();
+	 $( "#maplbleg" ).toggleClass('maplblei maplblev');
+	 
 	 var map = L.map('map',{attributionControl: false}).setView([<?php echo $citycenter[0]->lat; ?>,<?php echo $citycenter[0]->lon; ?>], 3);
 	 			L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 	      attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
 
       minZoom: 6
 }).addTo(map);
-		function onEachFeature(feature, layer) {
-		var popupContent = "<p>I started out as a GeoJSON " +
-				feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
-
-		if (feature.properties && feature.properties.popupContent) {
-			popupContent += feature.properties.popupContent;
-		}
-
-		layer.bindPopup(popupContent);
-	}
-
 			
 
 			var myLines = [{
     "type": "Feature",
         "properties": {
-        "popupContent": "This is the Auraria West Campus",
+        
         "style": {
             weight: 2,
             color: "#999",

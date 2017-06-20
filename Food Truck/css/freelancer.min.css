@@ -184,6 +184,7 @@ font-family: 'Varela Round', sans-serif;
 }
 
 
+
 .navbar-collapse{
  margin-right: -.5em;
 	grid-column:1;
@@ -199,6 +200,9 @@ z-index: -1;
         height: 100%;
 
 }
+
+
+
 .red-fire{
 
 -webkit-animation: blur-red 3s infinite;
@@ -272,8 +276,10 @@ transform: translateX(-50%); */
 #map{
 	height: 20em;
 	width:20em;
-	clip-path: circle(10em at center);
+/* 	clip-path: circle(10em at center); */
 	margin: auto;
+	border-radius: 50%;
+	z-index:1;
 }
 #mapcont{
 	
