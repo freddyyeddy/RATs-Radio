@@ -127,7 +127,7 @@ function ImportCSV2Array($filename)
     <title>Fire-N-Smoke</title>
 
 
-		<link href="inc/css/main.css?ts=<?=time()?>&quot; />" rel="stylesheet">  
+		<link href="inc/css/main.php" rel="stylesheet">  
 
 <!-- 	<link href="css/freelancer.min.css" rel="stylesheet">  -->
 
@@ -160,9 +160,9 @@ function ImportCSV2Array($filename)
 			<?php echo file_get_contents("inc/svg/Nashville Skyline.svg"); ?>
 		</span>
         <div class="container">
-					<span class="menu-grid" style="z-index:100;"> <span style="grid-column: 2; grid-row:1;">
+					<span class="menu-grid" style="z-index:100;"> <span style="float:left; grid-column: 2; grid-row:1; -ms-grid-column: 2; -ms-grid-row:1;">
 						<span style="display: grid;">
-							           <div class="navbar-header page-scroll" style="float:right; grid-column:1; grid-row:1; margin-bottom: 1.5em;margin-left: 2.6em;">
+							           <div class="navbar-header page-scroll" style="float:right; grid-column:1; grid-row:1; -ms-grid-column:1; -ms-grid-row:1; margin-bottom: 1.5em;margin-left: 2.6em;">
 
 													
                 <button style="bottom: -1.5em;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarbuttons">
@@ -194,7 +194,7 @@ function ImportCSV2Array($filename)
  </span>
 					
 
-	  <ul id="social" class="list-inline" style="grid-column: 1; grid-row:1">
+	  <ul id="social" class="list-inline" style="grid-column: 1; grid-row:1; -ms-grid-column: 1; -ms-grid-row:1; float:left;">
 			                      <li class="social-instagram">
                                 <a target="_blank" href='https://instagram.com/<?php echo $social->instagram; ?>' class="btn-social btn-outline"><span class="sr-only">Instagram</span><i class="fa fa-fw fa-instagram"></i></a>
                             </li>
@@ -208,7 +208,7 @@ function ImportCSV2Array($filename)
             <!-- Collect the nav links, forms, and other content for toggling -->
             
 	</span>
-	<a style="position:realative; display: block;" onclick="scrollToTop(1000);" style="grid-column:1;grid-row:1">
+	<a style="position:realative; display: block;" onclick="scrollToTop(1000);" style="grid-column:1;grid-row:1; -ms-grid-column:1; -ms-grid-row:1;">
 		<div class="full-logo"><!--
 		--><div class="fire burn" style="">fire</div><!--
 					--><div id="logobox"><!--
@@ -430,24 +430,8 @@ EOT;
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2" style="    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);">
-                    <p>Fire n Smoke is a traditional BBQ and Nashville Hot Chicken
-
-food truck with an infusion of contemporary flavors. We strive
-
-to elevate BBQ and hot chicken away from the typical southern
-
-experience. We pay attention to every detail in creating
-
-cuisine that will crush your palate, leaving you needing more.
-
-Chef Joe brings an unabashed LA sensibility to fuse with Chef
-
-Aaron’s classic Carolina lowcountry fare. Combine them with
-
-fifteen years of Nashville experience, and you have Fire n
-
-Smoke.
+                <div class="col-lg-4 col-lg-offset-2" style="    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);     text-align: center;">
+                    <p>Fire n Smoke is a traditional BBQ and Nashville Hot Chicken food truck with an infusion of contemporary flavors. We strive to elevate BBQ and hot chicken away from the typical southern experience. We pay attention to every detail in creating cuisine that will crush your palate, leaving you needing more. Chef Joe brings an unabashed LA sensibility to fuse with Chef Aaron’s classic Carolina lowcountry fare. Combine them with fifteen years of Nashville experience, and you have Fire n Smoke.
 </p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -518,12 +502,12 @@ return false;
 		<a class="close" href="#">&times;</a>
 		<div class="content">
 			 <form id='form' action="" method="POST">
-	        <div style="display: grid; grid-column-gap: 1em;">
+	        <div style="display: grid; display: -ms-grid; grid-column-gap: 1em; -ms-grid-columns:( 50% )[2]">
 							 <a class="close" target="" href="#">&times;</a>
-	<label style="  grid-column: 1; grid-row: 1;"><input placeholder="Name" id="name" type="text" name="name" class="contact"></label><br>
-	<label  style="  grid-column: 2; grid-row: 1;" ><input placeholder="Email" class="contact" id="email" type="email" name="last"></label><br>
-	<label  style="  grid-column: 1 / span 2; grid-row: 2;" ><textarea placeholder="Tell us about your event,  the location, date, and approximately how may guests we will be serving." class="contact" id="data" name="data" style="height: 30vh; width: 100%; resize: none"></textarea></label><br>
-	<button  style="grid-column: 1 / span 2; grid-row: 3;" id="submit" class="g-recaptcha submitbtn" data-sitekey="6Le5xyUUAAAAAFdnBS-1QU1tEHO5jrsvsLHAVTmu" data-callback="captchaSubmit">Submit</button>
+	<label style="  grid-column: 1; grid-row: 1; -ms-grid-column: 1; -ms-grid-row: 1;"><input placeholder="Name" id="name" type="text" name="name" class="contact"></label><br>
+	<label  style="  grid-column: 2; grid-row: 1; -ms-grid-column: 2; -ms-grid-row: 1;" ><input placeholder="Email" class="contact" id="email" type="email" name="last"></label><br>
+	<label  style="  grid-column: 1 / span 2; grid-row: 2; -ms-grid-row: 2; -ms-grid-column-span: 2;" ><textarea placeholder="Tell us about your event,  the location, date, and approximately how may guests we will be serving." class="contact" id="data" name="data" style="height: 30vh; width: 100%; resize: none"></textarea></label><br>
+	<button  style="grid-column: 1 / span 2; grid-row: 3; -ms-grid-row: 3; -ms-grid-column-span: 2;" id="submit" class="g-recaptcha submitbtn" data-sitekey="6Le5xyUUAAAAAFdnBS-1QU1tEHO5jrsvsLHAVTmu" data-callback="captchaSubmit">Submit</button>
 						 
 	</div>
 </form>
