@@ -1,80 +1,130 @@
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<style>
+/*! CSS Used from: https://ihatetomatoes.net/demos/css3-preloader-transition/css/main.css */
 
-    <!-- Theme CSS -->
-    <link href="css/freelancer.min.css" rel="stylesheet">
+#loader-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+}
 
-<!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> -->
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script src='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css' rel='stylesheet' />
- 
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-        <div class="container">
-					<span class="nav-grid">
-					<span style="z-index:100;">
-						<span class="menu-grid">
-							           <div class="navbar-header page-scroll" style="float:right;grid-column: 2 / 2;
-  grid-row: 1;">
-													 
-<!-- onClick="$(this).toggle();" -->
-                <button  style="float: right; top: 1em;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
+#loader {
+	display: block;
+	position: relative;
+	left: 50%;
+	top: 50%;
+	width: 150px;
+	height: 150px;
+	margin: -75px 0 0 -75px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #000;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+	z-index: 1001;
+}
 
-            </div>
-													               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float:right; padding: 1em; margin-right: -.5em;grid-area: 2 / 2 / 2 / 2;">
-                <ul class="nav navbar-nav navbar-right" >
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#portfolio">Menu</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a  href="#about">Locations</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a  href="#contact">Contact</a>
-<!-- 											;document.getElementsByClassName('.navbar-toggle').toggle() -->
-                    </li>
-                </ul>
-            </div>       
-            <!-- Brand and toggle get grouped for better mobile display -->
- </span>
-					
+#loader:before {
+	content: "";
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #85817e;
+	-webkit-animation: spin 3s linear infinite;
+	animation: spin 3s linear infinite;
+}
 
-	  <ul id="social" class="list-inline" style="grid-column: 1 / 2;">
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Instagram</span><i class="fa fa-fw fa-instagram"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
+#loader:after {
+	content: "";
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	right: 15px;
+	bottom: 15px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #ce2626;
+	-webkit-animation: spin 1.5s linear infinite;
+	animation: spin 1.5s linear infinite;
+}
 
-                        </ul>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            
-	</span>
-	<a href="#page-top">
-					<span id="logobox">
-					<object id="skyline" type="image/svg+xml" data="inc/svg/Nashville Skyline.svg"></object>
-</span>
-					</a>
-            <!-- /.navbar-collapse -->
-					</span>
-        </div>
-        <!-- /.container-fluid -->
+#loader-wrapper .loader-section {
+	position: fixed;
+	top: 0;
+	width: 51%;
+	height: 100%;
+	background: #222;
+	z-index: 1000;
+}
 
-    </nav>
+#loader-wrapper .loader-section.section-left {
+	left: 0;
+}
+
+#loader-wrapper .loader-section.section-right {
+	right: 0;
+}
+
+@media print,
+(-o-min-device-pixel-ratio: 5/4),
+(-webkit-min-device-pixel-ratio: 1.25),
+@media print {
+	* {
+		background: transparent!important;
+		color: #000!important;
+		box-shadow: none!important;
+		text-shadow: none!important;
+	}
+}
+
+
+/*! CSS Used keyframes */
+
+@-webkit-keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+	#logo{
+		position: absolute;
+    z-index: 9999999;
+    left: 50%;
+    width: 145px;
+    height: 145px;
+    transform: translate(-50%, 50%);
+	}
+
+</style> 
+<div id="loader-wrapper"> 
+	<div id="loader"></div> 
+		<object id="logo" type="image/svg+xml" data="inc/svg/logo.svg"></object>
+	<div class="loader-section section-left"></div>
+	<div class="loader-section section-right"></div> 
+</div>

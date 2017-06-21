@@ -75,7 +75,7 @@ if(!empty($tst[0]->geo->coordinates)){
 		$long=-86.7816;
 		}
 // }
-// echo  "latitude is :$lat longditude is $long";
+
 function ImportCSV2Array($filename)
 {
     $row = 0;
@@ -132,139 +132,33 @@ function ImportCSV2Array($filename)
 <!-- 	<link href="css/freelancer.min.css" rel="stylesheet">  -->
 
    
+<!-- Loading Jquery Needs First -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- <script src="inc/js/jquery.m.c.min.js"></script> -->
+<!-- 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<script defer async src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 
-<script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script async src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-	<script async src='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js'></script>
+	<script defer async src='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js'></script>
+	<!--   Capcha for form intagration -->
+	<script async src='https://www.google.com/recaptcha/api.js'></script>
+	<?php echo  "<script> var  olatitude = $lat; var olongditude =  $long; </script>"; ?>
+	<script defer src='inc/js/main.js'></script>
 
 
-	<script>	
-		var latitude = 0;
-		var longitude = 0;
-		var dist;
 
-		
-    $(document).on( "mobileinit", function() {
-    $.mobile.loader.prototype.options.disabled = true;
-});
-
- function geoFindMe() {
-	 
-	 if (navigator.geolocation) {
-		 navigator.geolocation.getCurrentPosition(function(position) {
-  // geolocation is available
-		 latitude  = position.coords.latitude;
-     longitude = position.coords.longitude;
-// 		alert(latitude);
-	
-  dist = getDistanceFromLatLonInKm(<?php echo $lat; ?>,<?php echo $long; ?>, latitude, longitude,'M');
-			 	console.log("latitude is " + latitude + "and Longitude is " + longitude + "  Distance between is " + dist);
-})}
-else {
-  // geolocation is not supported
-	    if (error.code == error.PERMISSION_DENIED) {
-        // pop up dialog asking for location
-    }
-}
- };
-		
-		
-			function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2, unit) {
-	var radlat1 = Math.PI * lat1/180
-	var radlat2 = Math.PI * lat2/180
-	var theta = lon1-lon2
-	var radtheta = Math.PI * theta/180
-	var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-	dist = Math.acos(dist)
-	dist = dist * 180/Math.PI
-	dist = dist * 60 * 1.1515
-	if (unit=="K") { dist = dist * 1.609344 }
-	if (unit=="N") { dist = dist * 0.8684 }
-		console.log(dist)
-	return dist
-}
-		
-		
-		
-
-$(document).ready(function(){
-		var div = $("#maincontent").height();
-var win = $(window).height();
-
-if (div < win ) {
-//     $("div").addClass('red');
-	$("#abtf").css("height","100vh");
-}
-geoFindMe();
-		$(":button.navbar-toggle").click(function(){
-  var target = $(this).data("target");
-  	$(target).toggleClass("in");
-});
-	
-
-	
-});
-		$(window).resize(function() {
-	var div = $("#maincontent").height();
-var win = $(window).height();
-
-if (div < win ) {
-//     $("div").addClass('red');
-	$("#abtf").css("height","100vh")
-}
-		}).resize();
-		
-fontsize = function () {
-    var fontSize = $(".menutextcont").height() * 0.075; // 10% of container width
-    $(".menutext").css('font-size', fontSize);
-};
-$(window).resize(fontsize);
-$(document).ready(fontsize);
-		
-		
-
-		
-		function scrollToTop(scrollDuration) {
-const   scrollHeight = window.scrollY,
-        scrollStep = Math.PI / ( scrollDuration / 15 ),
-        cosParameter = scrollHeight / 2;
-var     scrollCount = 0,
-        scrollMargin,
-        scrollInterval = setInterval( function() {
-            if ( window.scrollY != 0 ) {
-                scrollCount = scrollCount + 1;  
-                scrollMargin = cosParameter - cosParameter * Math.cos( scrollCount * scrollStep );
-                window.scrollTo( 0, ( scrollHeight - scrollMargin ) );
-            } 
-            else clearInterval(scrollInterval); 
-        }, 15 );
-}
-		
-
-var headerHeight = $("header").height();
-
-$(document).ready(function(){
-	$('.page-scroll').children().on('click',function (e) {
-	    e.preventDefault();
-
-	    var target = this.hash;
-	    var $target = $(target);
-
-	    $('html, body').stop().animate({
-	        'scrollTop': $target.offset().top
-	    }, 900, 'swing', function () {
-	        window.location.hash = target;
-	    });
-	});
-});
-
-	</script>
 </head>
 
 <body id="page-top" class="index">
-
+<div id="loader-wrapper"> 
+	<div id="loader"></div>
+	<div class="loadingtxt">Were Cooking up a good bit of webpage for ya</div>
+<?php echo file_get_contents("inc/svg/loadgo.svg"); ?>
+</div>
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+			<span id="skylinecont">
+			<?php echo file_get_contents("inc/svg/Nashville Skyline.svg"); ?>
+		</span>
         <div class="container">
 					<span class="menu-grid" style="z-index:100;"> <span style="grid-column: 2; grid-row:1;">
 						<span style="display: grid;">
@@ -283,13 +177,13 @@ $(document).ready(function(){
                         <a href="#page-top" ></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio" onclick="$(this).parents('div').toggleClass('in');">Menu</a>
+                        <a href="#portfolio" onclick="togglemenue($(this))">Menu</a>
                     </li>
                     <li class="page-scroll">
-                        <a  href="#about" onclick="$(this).parents('div').toggleClass('in');">About</a>
+                        <a  href="#about" onclick="togglemenue($(this))">About</a>
                     </li>
                     <li class="page-scroll">
-                        <a  href="#contact" onclick="$(this).parents('div').toggleClass('in');">Contact</a>
+                        <a  href="#contact" onclick="togglemenue($(this))">Contact</a>
 
                     </li>
                 </ul>
@@ -315,19 +209,17 @@ $(document).ready(function(){
             
 	</span>
 	<a style="position:realative; display: block;" onclick="scrollToTop(1000);" style="grid-column:1;grid-row:1">
-		<span id="skylinecont">
-			<object id="skyline" type="image/svg+xml" data="inc/svg/Nashville Skyline.svg"></object>
-		</span>
 		<div class="full-logo"><!--
 		--><div class="fire burn" style="">fire</div><!--
-					--><span id="logobox"><!--
-						--><object id="logo" type="image/svg+xml" data="inc/svg/logo.svg"></object><!--
-					--></span><!--
+					--><div id="logobox"><!--
+						--><?php echo file_get_contents("inc/svg/logo.svg"); ?>
+<!-- 			<object id="logo" type="image/svg+xml" data="inc/svg/logo.svg"></object> -->
+			<!--
+					--></div><!--
 		--><div class="smoke"style="">smoke</div>
 		</div>
 					</a>
 					
-					</span>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
@@ -341,7 +233,7 @@ $(document).ready(function(){
 							<div class="col-lg-13">
 							<div class="intro-text">
 								<div style="margin-bottom: 2em;text-shadow: 0px 0px 5px rgba(0, 0, 0, 1),0px 0px 5px rgba(0, 0, 0, 1),0px 0px 5px rgba(0, 0, 0, 1);">
-                        <h1 class="maintitle">Fire<object id="biglogo" type="image/svg+xml" data="inc/svg/logo.svg"></object>Smoke</h1>
+                        <h1 class="maintitle">Fire<?php echo file_get_contents("inc/svg/bglogo.svg"); ?>Smoke</h1>
                         <hr class="star-light nologo">
                         <span class="skills">Only The Best Foods Are Forged From Fire and Smoke</span>
                     </div>
@@ -356,8 +248,8 @@ $(document).ready(function(){
 									<div id="maplbles" class="maplblei" ><a target="_blank" href="https://www.google.com/maps/dir/Current+Location/<?php echo "$lat, $long";   ?>">
 										We Are right by you click here to get directions</a>
 									</div><span>
-													<div id='map' class="img-responsive">		</span>							
-	</div>
+													<div id='map' class="img-responsive">								
+	</div></span>	
     <script>
   // initialize the map
 			$(document).ready(function(){
@@ -579,7 +471,7 @@ Smoke.
 
 
 							<div style="text-align:center;">
-									You can contact us at <a href="mailto:fns@firensmoketruck.com?Subject=Catering Quesions" target="_blank">fns@firensmoketruck.com</a>
+									You can contact us at <a href="mailto:fns@firensmoketruck.com?Subject=Catering" target="_blank">fns@firensmoketruck.com</a>
 									or use the form
 							</div>
              	<script>
@@ -599,12 +491,14 @@ else
 // AJAX Code To Submit Form.
 $.ajax({
 type: "POST",
-url: "contact.php",
+url: "inc/contact.php",
 data: dataString,
 cache: false,
 success: function(result){
-alert(result);
-	$("#form")[0].reset();
+	document.location.href="#";
+		$("#form")[0].reset();
+		alert(result);
+
 }
 });
 }
@@ -612,8 +506,9 @@ return false;
 			
 		}
 	</script>
+									
 <div class="box">
-	<a class="button" href="#contact-form">Contact Form</a>
+	<a class="button" target="_self" href="#contact-form">Contact Form</a>
 </div>
 
 <div id="contact-form" class="overlay">
@@ -624,10 +519,10 @@ return false;
 		<div class="content">
 			 <form id='form' action="" method="POST">
 	        <div style="display: grid; grid-column-gap: 1em;">
-							 <a class="close" href="#">&times;</a>
+							 <a class="close" target="" href="#">&times;</a>
 	<label style="  grid-column: 1; grid-row: 1;"><input placeholder="Name" id="name" type="text" name="name" class="contact"></label><br>
 	<label  style="  grid-column: 2; grid-row: 1;" ><input placeholder="Email" class="contact" id="email" type="email" name="last"></label><br>
-	<label  style="  grid-column: 1 / span 2; grid-row: 2;" ><textarea placeholder="Tell us about your event,  the location, date, and approximately how may guests we will be serving." class="contact" id="data" type="text" name="data" style="height: 30vh; width: 100%; resize: none"></textarea></label><br>
+	<label  style="  grid-column: 1 / span 2; grid-row: 2;" ><textarea placeholder="Tell us about your event,  the location, date, and approximately how may guests we will be serving." class="contact" id="data" name="data" style="height: 30vh; width: 100%; resize: none"></textarea></label><br>
 	<button  style="grid-column: 1 / span 2; grid-row: 3;" id="submit" class="g-recaptcha submitbtn" data-sitekey="6Le5xyUUAAAAAFdnBS-1QU1tEHO5jrsvsLHAVTmu" data-callback="captchaSubmit">Submit</button>
 						 
 	</div>
@@ -667,9 +562,10 @@ return false;
     <!-- jQuery -->
 <!--   <script src="vendor/jquery/jquery.min.js"></script> -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<script async src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<!--   Capcha for form intagration -->
-	<script async src='https://www.google.com/recaptcha/api.js'></script>
+
+<!-- <script async src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+	
+
 	<!-- Bootstrap Core JavaScript -->
 <!--     <script src="vendor/bootstrap/js/bootstrap.min.js"></script> -->
 
