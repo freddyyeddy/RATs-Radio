@@ -8,9 +8,7 @@ $social = new stdClass;
 $social->facebook = "Fire-N-Smoke-112542055994094";
 $social->twitter = "fnstruck";
 $social->instagram = "fnstruck";
-$ctyid = 161838;
-$city = "Nashville";
-$state = "Tennessee";
+$iconpng = "http://rats-radio-freddyyeddy756323.codeanyapp.com/Food%20Truck/inc/logo.png";
 $settings = array(
     'oauth_access_token' => "2489215470-aTzaamYxbXt8iHImNGMoFZ1BGAIHYQGx0Ettt8n",
     'oauth_access_token_secret' => "VU7tvSShA2SIAwxI07lIgfTGI7QmAtOxVTcuff3fmweGT",
@@ -28,23 +26,6 @@ $twitter = new TwitterAPIExchange($settings);
 // });
 
 
-
-$json = file_get_contents("http://polygons.openstreetmap.fr/get_geojson.py?id=$ctyid&params=0");
-
-$jsonservicecenter = file_get_contents("http://nominatim.openstreetmap.org/search/?city=$city&state=$state&limit=1&format=json");
-$citycenter= json_decode($jsonservicecenter);
-$footprint = json_decode($json);
-// var_dump($footprint->geometries[0]->coordinates[0][0]);
-// // $city =  Polyline::encode($footprint[0]->polygonpoints);
-// $city =  Polyline::encode($footprint->footprints[0]->geometry->coordinates[0][0]);
-// var_dump($city);
-// // foreach($footprint->footprints[0]->geometry->coordinates[0][0] as $i => $cord){
-// // 	 if($i>0){
-// // 		$city .= round($cord[0]*1e5);
-// // 	 }else{
-// // 		 $city .= "|$cord[0],$cord[1]";
-// // 	 }
-// // }
 $tst = json_decode($twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest()); 
 // var_export($tst);
 $tweet = $tst[0]->text;
@@ -71,8 +52,8 @@ if(!empty($tst[0]->geo->coordinates)){
 // 	if(!empty($tst[0]->place->full_name)){
 // 	$citynstate = $tst[0]->geo->full_name;
 // 	}else{
-	$lat=36.1627;
-		$long=-86.7816;
+	$lat=36.162664;
+		$long=-86.781602;
 		}
 // }
 
@@ -136,15 +117,32 @@ function ImportCSV2Array($filename)
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <!-- <script src="inc/js/jquery.m.c.min.js"></script> -->
 <!-- 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
-<script defer async src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-
-	<script defer async src='https://api.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js'></script>
 	<!--   Capcha for form intagration -->
 	<script async src='https://www.google.com/recaptcha/api.js'></script>
-	<?php echo  "<script> var  olatitude = $lat; var olongditude =  $long; </script>"; ?>
-	<script defer src='inc/js/main.js'></script>
+	<script src='inc/js/main.js'></script>
 
+<script>
+	
+																$( window ).load(function() {
+$('#loader-wrapper').addClass('loaded');
+	fontsize();
+	setTimeout(function(){
+		if(dist < 20){
+	$( "#maplbles" ).toggleClass('maplblei maplblev');
+	document.getElementById("far").src="https://maps.googleapis.com/maps/api/staticmap?size=500x500&maptype=roadmap&markers=size:mid|icon:<?php echo $iconpng ?>|<?php echo "$lat,$long|" ?>&markers=size:mid|color:red|" + latitude + "," + longitude + "&key=AIzaSyAivrvfXCE9N4xms0Z6xGSTjcuZDkcvdOk";
+																}else{
+// 																	   $('.far').toggle();
+	$( "#maplbleg" ).toggleClass('maplblei maplblev');	
+																}
+												
+// 		$('#loader-wrapper').addClass('loaded');
+	}, 300);
+	geoFindMe(<?php echo $lat;?>,<?php echo $long;?>);
+																
 
+});
+	
+	</script>
 
 </head>
 
@@ -248,87 +246,11 @@ function ImportCSV2Array($filename)
 									<div id="maplbles" class="maplblei" ><a target="_blank" href="https://www.google.com/maps/dir/Current+Location/<?php echo "$lat, $long";   ?>">
 										We Are right by you click here to get directions</a>
 									</div><span>
-													<div id='map' class="img-responsive">								
+													<div id='map' class="img-responsive">
+														<img id="far"  src='https://maps.googleapis.com/maps/api/staticmap?size=500x500&maptype=roadmap\&center=<?php echo "$lat,$long" ?>&zoom=7&key=AIzaSyAivrvfXCE9N4xms0Z6xGSTjcuZDkcvdOk'>
+								
 	</div></span>	
-    <script>
-  // initialize the map
-			$(document).ready(function(){
- if (dist < 10){
-	 
-var map = L.map('map',{attributionControl: false}).setView([<?php echo $lat; ?>,<?php echo $long; ?>], 13);
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-	      attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
-
-      minZoom: 9
-}).addTo(map);
-$( "#maplbles" ).toggleClass('maplblei maplblev'); 
-// 	 alert("Too Close");
-// L.marker([51.5, -0.09]).addTo(map)
-// .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-// 	.openPopup();
- }else{
-	 $( "#maplbleg" ).toggleClass('maplblei maplblev');
-	 
-	 var map = L.map('map',{attributionControl: false}).setView([<?php echo $citycenter[0]->lat; ?>,<?php echo $citycenter[0]->lon; ?>], 3);
-	 			L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-	      attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
-
-      minZoom: 6
-}).addTo(map);
-			
-
-			var myLines = [{
-    "type": "Feature",
-        "properties": {
-        
-        "style": {
-            weight: 2,
-            color: "#999",
-            opacity: 1,
-            fillColor: "#B0DE5C",
-            fillOpacity: 0.8
-        }
-    },
-    "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-			<?php
-			foreach($footprint->geometries[0]->coordinates[0][0] as $i => $cord){
-	 if($i>0){
-		echo ",[$cord[0],$cord[1]]";
-	 }else{
-		 echo "[$cord[0],$cord[1]]";
-	 }
-}
-			?>
-		]]
-}
-			}];
-
-var myStyle = {
-            "weight": 2,
-            "color": "#999",
-            "opacity": 1,
-            "fillColor": "#B0DE5C",
-            "fillOpacity": 0.125
-};
-
-L.geoJSON(myLines, {
-	style: myStyle
-}).addTo(map);
-
  
- 
- 
- 
- 
- 
- 
- }
-map.removeControl(map.zoomControl);
-			});
-  </script>
-
 										
 										</span>
 	

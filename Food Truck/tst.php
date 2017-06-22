@@ -1,3 +1,0 @@
-<img src='https://maps.googleapis.com/maps/api/staticmap?center=36.1627,-86.7816&zoom=10&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%36.182578,-86.758355&key=AIzaSyAivrvfXCE9N4xms0Z6xGSTjcuZDkcvdOk' height="500" width="500">
-<!-- 36.182578,-86.758355 -->
-<!-- https://maps.googleapis.com/maps/api/staticmap?center=36.1627,-86.7816&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%36.182578,-86.758355&key=AIzaSyAivrvfXCE9N4xms0Z6xGSTjcuZDkcvdOk -->
