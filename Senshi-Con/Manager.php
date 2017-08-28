@@ -18,6 +18,7 @@ $connection->query("Delete from `forms` where id = $_POST[id]");
 ?>
 <!DOCTYPE html>
 <head>
+<title>Management</title>
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi?autoload= 
