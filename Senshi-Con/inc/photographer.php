@@ -52,7 +52,7 @@ mysqli_close($connection);
 				<input type="tel" required name="phone" id="ph" value="$phone"  oninvalid="this.setCustomValidity('We Need a Phone Number')" oninput="setCustomValidity('')" data-theme="a" >
 				
 			<label for="pid">Picture Number</label>
-				<input type="number" name="pid" required id="pid" oninvalid="this.setCustomValidity('You Forgot the PID BROOOOTHERR')" oninput="setCustomValidity('')" placeholder="Input the Photo ID Only One Input In description if multiple Photos are to be used" data-theme="a">
+				<input type="number" name="pid" required id="pid" oninvalid="this.setCustomValidity('You Forgot the PID BROOOOTHERR')" oninput="setCustomValidity('')" placeholder="Only one id here" data-theme="a">
 			
 			<label for="des">Description</label>
 				<textarea name="description" required id="des" data-theme="a"  oninvalid="this.setCustomValidity('It Would Be nice to Know What they looked like BRO')" oninput="setCustomValidity('')" >$desc</textarea>

@@ -46,7 +46,8 @@ $manual = '<div style="width:100%; height:2em; border-radius: .6em; border: 1px 
 				echo <<<EOT
 					<tr>
 <td>$manual</td>
-<td><form data-ajax="false" action="Artist Interface.php" method="post" id='Which Artist'><input type="hidden" value='$id' name='id'><button type="submit" value="Kira" name="update" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Kira</button><button type="submit" value="Kolton" name="update" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Kolton</button></form></td>
+<td><form data-ajax="false" action="Artist Interface.php" method="post" id='Which Artist'><input type="hidden" value='$id' name='id'><button type="submit" value="Done" name="update" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Done</button></form></td>
+<!-- artist name <td><form data-ajax="false" action="Artist Interface.php" method="post" id='Which Artist'><input type="hidden" value='$id' name='id'><button type="submit" value="Kira" name="update" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Kira</button><button type="submit" value="Kolton" name="update" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Kolton</button></form></td> -->
 
 					<td id="name">$name</td>
 <td>$photo_id</td>

@@ -49,7 +49,7 @@ mysqli_close($connection);
 					<td>$timestamp
 											<div data-role="popup" id="$linkid" data-theme="b" class="ui-corner-all">
 <form data-ajax="false"  action="" method="post" id='form'>
-	<button type="submit" id="del" name="delete" value="delete" style="!important background-color: ##ff4f4f;" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Delete</button>
+	<button type="submit" id="del" name="delete" value="delete" onclick="return confirm('Are you sure you want to delete this we cant get it back if you do');" style="!important background-color: ##ff4f4f;" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Delete</button>
 	<input type="hidden" name="id" value="$id">
 </form>
 <form data-ajax="false"  action="" d method="post" id='form'>
