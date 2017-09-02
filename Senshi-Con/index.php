@@ -60,8 +60,22 @@ unset($_POST);
 				<textarea name="description" required id="des" data-theme="a" placeholder="Enter a Good Description of Yourself and Others to Be in The Picture EG: Tall Man W/ Black Hair and Samurai Sword I am Afro Samurai"  oninvalid="this.setCustomValidity('It Would Be nice to Know What You Look Like Bro')" oninput="setCustomValidity('')" ></textarea>
 			<label for="bg">Background Choice</label>
 		<img width="20%" class="preview" id="img" src="">
-				<input type="text"  id="pid" required oninvalid="this.setCustomValidity('I Know You Didnt Forget to Give Me a BG Number')" oninput="setCustomValidity('')" name="bg" id="bg" placeholder="Type In BG number EG: A12" pattern="<?php $images = glob("inc/thumb/*.{jpg,JPG,jpeg,JPEG}", GLOB_BRACE); $keyword = preg_quote("inc/thumb/",'/')."|.jpg"; echo implode("|", preg_replace("/($keyword)/i",'',$images)) . "/i";
- ?>" data-theme="a">
+				<input type="text"  id="pid" required oninvalid="this.setCustomValidity('I Know You Didnt Forget to Give Me a BG Number')" oninput="setCustomValidity('')" name="bg" id="bg" placeholder="Type In BG number EG: A12" pattern="<?php 
+$images = glob("inc/thumb/*.{jpg,JPG,jpeg,JPEG}", GLOB_BRACE); 
+$keyword = preg_quote("inc/thumb/",'/')."|.jpg";
+$lst = preg_replace("/($keyword)/i",'',$images);
+$patern = array();
+foreach($lst as $value) {
+  $chk = preg_split('/(?<=\d)(?=[a-z])|(?<=[a-z])(?=\d)/i' , $value);
+   
+  $value =  "[" . $chk[0] . strtolower($chk[0]) . "]{1}$chk[1]";
+  array_push($patern, $value);
+}
+// var_dump($patern);
+
+echo implode('|', $patern);
+
+?>" data-theme="a">
 
 		<button type="submit" value="submit" name="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Submit</button>
 	</div>

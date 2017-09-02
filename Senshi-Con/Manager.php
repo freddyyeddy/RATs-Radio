@@ -95,7 +95,7 @@ document.getElementById('add_results_7').innerHTML= data + '';
 
 //        alert("Photos Done " + data.Done + "   Photos Taken But Not Done " + data.Photo_Taken + " Total Number of Photos " + data.registered);
 
-     google.charts.setOnLoadCallback(drawpie(1,1,1));
+     google.charts.setOnLoadCallback(drawpie(0,0,0));
 
 
     });
