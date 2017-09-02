@@ -2,8 +2,10 @@
 require('inc/var.php');
 $connection = connect();
 if(isset($_POST['submit'])){
-$connection->query("INSERT INTO `forms` set `description`='$_POST[description]', `name`= '$_POST[name]', `phone`='$_POST[phone]', `bg`='$_POST[bg]',`email`='$_POST[email]'");
+$bg = strtoupper($_POST[bg]);
+$connection->query("INSERT INTO `forms` set `description`='$_POST[description]', `name`= '$_POST[name]', `phone`='$_POST[phone]', `bg`='$bg',`email`='$_POST[email]'");
 unset($_POST);
+print("<script>window.alert('Thank You. Your Registration has been submitted');</script>");
 }
 ?>
 <!DOCTYPE html>
@@ -48,13 +50,13 @@ unset($_POST);
 		<h3>Register Here</h3>
 		
 		<label for="nm">Name</label>
-		<input required oninvalid="this.setCustomValidity('A Name Is Needed Nothing More Acward Than The Moring After But You Didnt Get Their Name')" oninput="setCustomValidity('')" type="text" name="name" id="nm" placeholder="John Doe" data-theme="a" >
+		<input autocomplete="off"required oninvalid="this.setCustomValidity('A Name Is Needed Nothing More Acward Than The Moring After But You Didnt Get Their Name')" oninput="setCustomValidity('')" type="text" name="name" id="nm" placeholder="John Doe" data-theme="a" >
 		
 			<label for="ph">Phone Number</label>
-				<input type="tel" required name="phone" id="ph" placeholder="9078765309"  oninvalid="this.setCustomValidity('We Need a Phone Number')" oninput="setCustomValidity('')" data-theme="a" >
+				<input autocomplete="off" type="tel" required name="phone" id="ph" placeholder="9078765309"  oninvalid="this.setCustomValidity('We Need a Phone Number')" oninput="setCustomValidity('')" data-theme="a" >
 				
 			<label for="email">Email</label>
-				<input type="email" name="email" required id="email" oninvalid="this.setCustomValidity('We need a VALID email It is Not Kept. It so Where Ever You are We Will Find You...')" oninput="setCustomValidity('')" placeholder="BLahBlah@blarg.com" data-theme="a">
+				<input autocomplete="off" type="email" name="email" required id="email" oninvalid="this.setCustomValidity('We need a VALID email It is Not Kept. It so Where Ever You are We Will Find You...')" oninput="setCustomValidity('')" placeholder="BLahBlah@blarg.com" data-theme="a">
 			
 			<label for="des">Description</label>
 				<textarea name="description" required id="des" data-theme="a" placeholder="Enter a Good Description of Yourself and Others to Be in The Picture EG: Tall Man W/ Black Hair and Samurai Sword I am Afro Samurai"  oninvalid="this.setCustomValidity('It Would Be nice to Know What You Look Like Bro')" oninput="setCustomValidity('')" ></textarea>

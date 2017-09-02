@@ -25,13 +25,18 @@ $.get('inc/Artist.php',function(data){
 $(data).prependTo("#table").hide().fadeIn().trigger('create');
 // 	$('#table').html( myHtmlStr ).enhanceWithin();
 });
+
+	
 		})
 		
 			setInterval(function(){
 			
 						$.get('inc/Artist.php',function(data){
 $(data).appendTo("#table").hide().fadeIn().trigger('create');
-// 	$('#table').html( myHtmlStr ).enhanceWithin();
+											$.getJSON("inc/artback.php", function(data) {
+	var data = data +" In Backlog";
+document.getElementById('add_results_7').innerHTML= data + ''; 
+	});
 });
 			
 		}, 500);
@@ -79,21 +84,12 @@ box-shadow: 1px 1px 2px 2px #C2C2C2;
   </style>
 </head>
 <div data-role="page">
-<?php
-		$result = $connection->query('SELECT * FROM `forms` WHERE `done` = "0" and `pictaken`="1" ORDER BY `manual` DESC, `timestamp` ASC' );
-		$num_rows = $result->num_rows;
-echo '	<div data-role="header"> ';
-	if($num_rows<=0){
-echo "You Are Either Done Or Have Yet To Begin Best Luck";
-echo' </div><div data-role="content">	';
-exit;
-}
-		echo "$num_rows In Backlog\n";
-?>
+		<div data-role="content">
+		<div id='add_results_7'>
 		
-		
+	</div>
 <input id="filterTable-input" data-type="search">
-	<table style="margin: 0 auto;" id="edit" data-filter="true" data-input="#filterTable-input" data-mode="reflow" class="ui-responsive table-stroke table-stripe">
+	<table id="results" style="margin: 0 auto;" id="edit" data-filter="true" data-input="#filterTable-input" data-mode="reflow" class="ui-responsive table-stroke table-stripe">
 			<thead>
 				<tr class="titlerow">
 					<th>Manual?</th>
