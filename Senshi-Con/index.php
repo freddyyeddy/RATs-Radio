@@ -30,7 +30,7 @@ unset($_POST);
 });
 	$("#pid").keyup(function(){
           var inputVal = $(this).val();
-          $("#img").attr("src", "/inc/thumb/"+inputVal+".jpg");
+          $("#img").attr("src", "inc/thumb/"+inputVal.toUpperCase()+".jpg");
      });
 		})  
 	</script>
@@ -38,7 +38,6 @@ unset($_POST);
   
   tr:nth-child(even) {background: #CCC};
   </style>
-<link rel="stylesheet" type="text/css" href="inc/main.css">
 </head>
 <div data-role="page">
 <div data-role='header'>
@@ -61,7 +60,7 @@ unset($_POST);
 				<textarea name="description" required id="des" data-theme="a" placeholder="Enter a Good Description of Yourself and Others to Be in The Picture EG: Tall Man W/ Black Hair and Samurai Sword I am Afro Samurai"  oninvalid="this.setCustomValidity('It Would Be nice to Know What You Look Like Bro')" oninput="setCustomValidity('')" ></textarea>
 			<label for="bg">Background Choice</label>
 		<img width="20%" class="preview" id="img" src="">
-				<input type="text"  id="pid" required oninvalid="this.setCustomValidity('I Know You Didnt Forget to Give Me a BG Number')" oninput="setCustomValidity('')" name="bg" id="bg" placeholder="Type In BG number EG: A12" pattern="<?php $images = glob("inc/thumb/*.{jpg,JPG,jpeg,JPEG}", GLOB_BRACE); $keyword = preg_quote("inc/thumb/",'/')."|.jpg"; echo implode("|", preg_replace("/($keyword)/i",'',$images));
+				<input type="text"  id="pid" required oninvalid="this.setCustomValidity('I Know You Didnt Forget to Give Me a BG Number')" oninput="setCustomValidity('')" name="bg" id="bg" placeholder="Type In BG number EG: A12" pattern="<?php $images = glob("inc/thumb/*.{jpg,JPG,jpeg,JPEG}", GLOB_BRACE); $keyword = preg_quote("inc/thumb/",'/')."|.jpg"; echo implode("|", preg_replace("/($keyword)/i",'',$images)) . "/i";
  ?>" data-theme="a">
 
 		<button type="submit" value="submit" name="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Submit</button>
