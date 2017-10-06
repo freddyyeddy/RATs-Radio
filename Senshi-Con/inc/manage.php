@@ -15,7 +15,9 @@ $connection->query("Delete from `forms` where id = $_POST[id]");
 
 }else{
 	if(isset($_POST[submit])){
-		$connection->query("Update `forms` set `description`='$_POST[description]', `name`= '$_POST[name]', `pid` ='$_POST[pid]', `phone`='$_POST[phone]', `manual`='$_POST[man]', `bg`='$_POST[bg]', where id='$_POST[id]'") or die(mysqli_error($connection));
+		$des = str_replace("'", "''", $_POST[description]);
+		$nm = str_replace("'", "''", $_POST[name]);
+		$connection->query("Update `forms` set `description`='$des', `name`= '$nm', `pid` ='$_POST[pid]', `phone`='$_POST[phone]', `manual`='$_POST[man]', `bg`='$_POST[bg]', where id='$_POST[id]'") or die(mysqli_error($connection));
 		unset($_POST);
 
 	}

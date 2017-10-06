@@ -3,9 +3,13 @@ require('inc/var.php');
 $connection = connect();
 if(isset($_POST['submit'])){
 $bg = strtoupper($_POST[bg]);
-$connection->query("INSERT INTO `forms` set `description`='$_POST[description]', `name`= '$_POST[name]', `phone`='$_POST[phone]', `bg`='$bg',`email`='$_POST[email]'");
+	$des = str_replace("'", "''", $_POST[description]);
+	$nm = str_replace("'", "''", $_POST[name]);
+$connection->query("INSERT INTO `forms` set `description`='$des', `name`= '$nm', `phone`='$_POST[phone]', `bg`='$bg',`email`='$_POST[email]'");
 unset($_POST);
-print("<script>window.alert('Thank You. Your Registration has been submitted');</script>");
+print("<script>window.alert('Thank You. Your Registration has been submitted');
+window.location.href = window.location.href;
+</script>");
 }
 ?>
 <!DOCTYPE html>

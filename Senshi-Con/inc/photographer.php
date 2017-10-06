@@ -38,7 +38,7 @@ mysqli_close($connection);
 					<td id="name">$name</td>
 					<td>$phone</td>
 					<td>$desc</td>
-					<td><img width="20%" class="preview" id="img" src="inc/thumb/$photo_bg.jpg"></td>
+					<td><img width="50%" class="preview" id="img" src="inc/thumb/$photo_bg.jpg"></td>
 					<td>$email</td>
 					<td>$timestamp
 											<div data-role="popup" id="$linkid" data-theme="b" class="ui-corner-all">
